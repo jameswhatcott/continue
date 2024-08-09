@@ -14,9 +14,25 @@ const YOUR_DOMAIN = 'http://localhost:4242';
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+
+app.get('/', async (req, res) => {
+  try {
+    res.render('homepage');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
+app.get('/checkout', async (req, res) => {
+  try {
+    res.render('checkout');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 app.get('/success', async (req, res) => {
   try {
-   
     res.render('success');
   } catch (err) {
     res.status(500).json(err);
@@ -25,17 +41,7 @@ app.get('/success', async (req, res) => {
 
 app.get('/cancel', async (req, res) => {
   try {
-
     res.render('cancel');
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-app.get('/', async (req, res) => {
-  try {
-
-    res.render('homepage');
   } catch (err) {
     res.status(500).json(err);
   }
