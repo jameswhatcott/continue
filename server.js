@@ -3,6 +3,9 @@ const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQK
 const express = require('express');
 const app = express();
 app.use(express.static('public'));
+const sequelize = require('./config/connection');
+require('dotenv').config();
+const {Game, User, Console} = require('./models')
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
@@ -23,4 +26,6 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 
-app.listen(3001, () => console.log('Running on port 3001'));
+sequelize.sync({ force: true }).then(() => {
+  app.listen(3001, () => console.log('Now listening'));
+});

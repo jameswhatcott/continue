@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, condition } = require('sequelize');
 const sequelize = require('../config/connection');
-const { timeStamp } = require('console');
+const { timestamps } = require('console');
 
 class Game extends Model {}
 
@@ -21,9 +21,9 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        player_perspective:{
-            type: DataTypes.STRING,
-            allowNull: false
+        amount_players:{
+            type: DataTypes.INTEGER,
+            allowNull: true
         },
         year_created:{
             type: DataTypes.INTEGER,
@@ -32,6 +32,18 @@ Game.init(
         genre:{
             type: DataTypes.STRING,
             allowNull: false
+        },
+        price:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        condition:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        stock:{
+            type: DataTypes.INTEGER,
+            allowNull: true
         }
 
     },
