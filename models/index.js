@@ -7,7 +7,7 @@ GameInfo.belongsTo(Game, {
     onDelete: 'CASCADE',
 })
 
-Game.hasMany(GameInfo,{
+Game.hasMany(GameInfo, {
     foreignKey: 'game_id'
 })
 
