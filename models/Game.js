@@ -33,19 +33,6 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        price:{
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        condition:{
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        stock:{
-            type: DataTypes.INTEGER,
-            allowNull: true
-        }
-
     },
     {
         sequelize,
@@ -58,3 +45,17 @@ Game.init(
 
 
 module.exports = Game;
+
+
+   // price:{
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        // },
+        // condition:{
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
+        // stock:{
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true
+        // }

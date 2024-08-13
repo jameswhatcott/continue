@@ -1,39 +1,23 @@
-const { GameInfo } = require('../models'); // Adjust the path as needed
+const { Console } = require('../models'); // Adjust the path according to your project structure
 
-const gameInfoData = [
-    {
-        console: 'Game Boy Advance',
-        developer: 'Nintendo',
-        game_id: 1 // Adjust to match your actual game_id
-    },
-    {
-        console: 'Game Boy Advance',
-        developer: 'Capcom',
-        game_id: 2 // Adjust to match your actual game_id
-    },
-    {
-        console: 'Game Boy Advance',
-        developer: 'Konami',
-        game_id: 3 // Adjust to match your actual game_id
-    },
-    {
-        console: 'Game Boy Advance',
-        developer: 'Square Enix',
-        game_id: 4 // Adjust to match your actual game_id
-    },
-    {
-        console: 'Game Boy Advance',
-        developer: 'Namco',
-        game_id: 5 // Adjust to match your actual game_id
-    }
+// Data for consoles
+const consoleData = [
+    { console: 'GBA', developer: 'Nintendo' },
+    { console: 'DS', developer: 'Nintendo' },
+    { console: 'Wii', developer: 'Nintendo' },
+    { console: 'PS4', developer: 'Sony' },
+    { console: 'Xbox Original', developer: 'Microsoft' }
 ];
 
-module.exports = {
-    up: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkInsert('gameinfo', gameInfoData, {});
-    },
-
-    down: async (queryInterface, Sequelize) => {
-        await queryInterface.bulkDelete('gameinfo', null, {});
+// Seeder function
+const seedConsoles = async () => {
+    try {
+        await Console.bulkCreate(consoleData);
+        console.log('Consoles have been seeded successfully.');
+    } catch (err) {
+        console.error('Error seeding consoles:', err);
     }
 };
+
+// Execute the seeding
+seedConsoles();

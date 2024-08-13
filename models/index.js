@@ -1,6 +1,7 @@
 const User = require('./User')
 const Game = require('./Game')
 const Console = require('./Console')
+const Cart = require('./Cart')
 
 
 
@@ -18,7 +19,7 @@ User.hasMany(Game, {
 
 
 
-module.exports = {User, Game, Console}
+module.exports = {User, Game, Console, Cart}
 
 
 
