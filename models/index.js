@@ -1,15 +1,16 @@
 const User = require('./User')
 const Game = require('./Game')
-const GameInfo = require('./GameInfo')
-const Cart = require('./Cart');
+const Console = require('./Console')
+const Cart = require('./Cart')
 
-GameInfo.belongsTo(Game, {
-    foreignKey: 'game_id',
-    onDelete: 'CASCADE',
+
+
+Console.belongsToMany(Game, {
+    through: 'gamesConsoles',
 })
 
-Game.hasMany(GameInfo, {
-    foreignKey: 'game_id'
+Game.belongsToMany(Console,{
+    through: 'gamesConsoles'
 })
 
 User.hasMany(Game, {
@@ -36,7 +37,7 @@ User.hasMany(Cart, {
 
 
 
-module.exports = {User, Game, GameInfo, Cart}
+module.exports = {User, Game, Console, Cart}
 
 
 

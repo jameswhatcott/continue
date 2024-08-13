@@ -15,7 +15,6 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   })
-  
   router.get('/checkout', async (req, res) => {
     try {
       res.render('checkout');
@@ -23,7 +22,6 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   })
-  
   router.get('/success', async (req, res) => {
     try {
       res.render('success');
@@ -31,7 +29,6 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
   router.get('/cancel', async (req, res) => {
     try {
       res.render('cancel');
@@ -39,8 +36,6 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
-  
-  
   router.post('/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: [
@@ -59,7 +54,6 @@ router.get('/', async (req, res) => {
       success_url: `${YOUR_DOMAIN}/success`,
       cancel_url: `${YOUR_DOMAIN}/cancel`,
     });
-  
     res.redirect(303, session.url);
   });
 

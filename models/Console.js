@@ -8,9 +8,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class GameInfo extends Model{}
 
-GameInfo.init(
+class Console extends Model{}
+
+Console.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -18,34 +19,23 @@ GameInfo.init(
             autoIncrement: true,
             primaryKey: true
         },
+        console:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         developer:{
             type: DataTypes.STRING,
             allowNull: false
         },
-        engine:{
-            type: DataTypes.STRING,
-            allowNull: true
-        },
-        amount_players:{
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        game_id:{
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references:{
-                model: 'game', 
-                key: 'id'
-            }
-        }
+
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'gameinfo',
+        modelName: 'Console',
     }  
 )
 
-module.exports = GameInfo
+module.exports = Console
