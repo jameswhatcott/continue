@@ -1,6 +1,6 @@
 const { Game } = require('../models'); 
 
-// Data for GBA games
+// GBA games
 const gbaGameData = [
     { title: 'The Legend of Zelda: The Minish Cap', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'Action-Adventure' },
     { title: 'Pokémon FireRed', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'RPG' },
@@ -14,7 +14,7 @@ const gbaGameData = [
     { title: 'The Legend of Zelda: Oracle of Seasons', publisher: 'Nintendo', amount_players: 1, year_created: 2001, genre: 'Action-Adventure' }
 ];
 
-// Data for DS games
+// DS games
 const dsGameData = [
     { title: 'New Super Mario Bros.', publisher: 'Nintendo', amount_players: 2, year_created: 2006, genre: 'Platformer' },
     { title: 'Pokémon Diamond', publisher: 'Nintendo', amount_players: 1, year_created: 2006, genre: 'RPG' },
@@ -28,7 +28,7 @@ const dsGameData = [
     { title: 'WarioWare: Touched!', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'Party' }
 ];
 
-// Data for Wii games
+//  Wii games
 const wiiGameData = [
     { title: 'The Legend of Zelda: Twilight Princess', publisher: 'Nintendo', amount_players: 1, year_created: 2006, genre: 'Action-Adventure' },
     { title: 'Super Smash Bros. Brawl', publisher: 'Nintendo', amount_players: 4, year_created: 2008, genre: 'Fighting' },
@@ -42,7 +42,7 @@ const wiiGameData = [
     { title: 'Xenoblade Chronicles', publisher: 'Nintendo', amount_players: 1, year_created: 2010, genre: 'RPG' }
 ];
 
-// Data for PS4 games
+// PS4 games
 const ps4GameData = [
     { title: 'The Last of Us Part II', publisher: 'Sony', amount_players: 1, year_created: 2020, genre: 'Action-Adventure' },
     { title: 'God of War', publisher: 'Sony', amount_players: 1, year_created: 2018, genre: 'Action-Adventure' },
@@ -56,7 +56,7 @@ const ps4GameData = [
     { title: 'Ghost of Tsushima', publisher: 'Sony', amount_players: 1, year_created: 2020, genre: 'Action-Adventure' }
 ];
 
-// Data for Xbox Original games
+// Xbox games
 const xboxGameData = [
     { title: 'Halo: Combat Evolved', publisher: 'Microsoft', amount_players: 1, year_created: 2001, genre: 'First-Person Shooter' },
     { title: 'Fable', publisher: 'Microsoft', amount_players: 1, year_created: 2004, genre: 'RPG' },

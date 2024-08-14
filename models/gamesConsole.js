@@ -1,40 +1,40 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Cart extends Model{}
 
-Cart.init(
+class gamesConsoles extends Model{}
+
+gamesConsoles.init(
     {
-        id: {
+        game_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
         },
-        gameConsole_id: {
+        console_id:{
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        price:{
             type: DataTypes.INTEGER,
             allowNull: false,
-            primaryKey: true
         },
-       user_id:{
+        condition:{
             type: DataTypes.STRING,
-            allowNull: false,
-            primaryKey: true
+            allowNull: false
         },
-       quantity:{
+        stock:{
             type: DataTypes.INTEGER,
             allowNull: true
-        },
+        }
+
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Cart',
+        modelName: 'gamesConsoles',
     }  
 )
 
-
-
-module.exports = Cart
+module.exports = gamesConsoles
