@@ -34,7 +34,7 @@ Console.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Console',
+        modelName: 'console',
     }  
 )
 

@@ -21,7 +21,7 @@ Cart.init(
             allowNull: false,
             primaryKey: true
         },
-       quanity:{
+       quantity:{
             type: DataTypes.INTEGER,
             allowNull: true
         },
@@ -31,7 +31,7 @@ Cart.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Cart',
+        modelName: 'cart',
     }  
 )
 
