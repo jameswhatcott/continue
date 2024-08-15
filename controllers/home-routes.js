@@ -3,20 +3,23 @@ const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQK
 const withAuth = require('../utils/auth');
 
 
-const { Game, User } = require('../models');
+const { Game, User, Console, game } = require('../models');
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
 
 
 router.get('/', async (req, res) => {
-    try {
-      res.render('homepage');
-    } catch (err) {
-      console.error('Error in root route:', err);  // Log the error
+  try {
+    const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+
+    res.render('homepage', { consoles }); // Pass consoles to Handlebars
+  } catch (err) {
+    console.error('Error in root route:', err);
     res.status(500).send('Internal Server Error');
-    }
-  })
+  }
+});
   router.get('/cart', async (req, res) => {
     try {
       res.render('cart');
@@ -50,6 +53,33 @@ router.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
     }
   });
+
+  router.get('/games/:consoleId', async (req, res) => {
+    try {
+      const consoleData = await Console.findByPk(req.params.id, {
+          include: {
+              model: Game,
+              through: {
+                  model: gamesConsoles,
+                  attributes: ['price', 'condition', 'stock'],
+              },
+          },
+      });
+
+      if (!consoleData) {
+          res.status(404).json({ message: 'No console found with this id!' });
+          return;
+      }
+
+      const console = consoleData.get({ plain: true });
+
+      res.render('console-games', { console, games: console.games });
+    } catch (error) {
+      console.error('Error fetching games:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+    
 
   router.get('/list-item', async (req, res) => {
     try {

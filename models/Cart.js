@@ -5,6 +5,7 @@ class Cart extends Model{}
 
 Cart.init(
   {
+
       id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
@@ -32,6 +33,7 @@ Cart.init(
           modelName: 'cart',
       }
   )
+
 
 
 
