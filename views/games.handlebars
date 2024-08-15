@@ -1,1 +1,14 @@
-<h1>All Games</h1>
+<h1>Games for {{console.console}} ({{console.developer}})</h1>
+
+<ul>
+    {{#each games}}
+    <li>
+        <h3>{{this.title}}</h3>
+        <p>Price: ${{this.gamesConsoles.price}}</p>
+        <p>Condition: {{this.gamesConsoles.condition}}</p>
+        <p>Stock: {{this.gamesConsoles.stock}}</p>
+    </li>
+    {{/each}}
+</ul>
+
+
