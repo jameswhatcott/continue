@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQKUHgla6fLrH6mbC8de2VdibW697xwogpjkjufDL5nbdpBtXdXzvl00wI2AUdvd');
+const express = require('express');
 
 
 const { Game, User } = require('../models');
@@ -12,30 +13,62 @@ router.get('/', async (req, res) => {
     try {
       res.render('homepage');
     } catch (err) {
-      res.status(500).json(err);
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
     }
   })
-  router.get('/checkout', async (req, res) => {
+  router.get('/cart', async (req, res) => {
     try {
-      res.render('checkout');
+      res.render('cart');
     } catch (err) {
-      res.status(500).json(err);
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
     }
   })
   router.get('/success', async (req, res) => {
     try {
       res.render('success');
     } catch (err) {
-      res.status(500).json(err);
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
     }
   });
   router.get('/cancel', async (req, res) => {
     try {
       res.render('cancel');
     } catch (err) {
-      res.status(500).json(err);
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
     }
   });
+
+  router.get('/games', async (req, res) => {
+    try {
+      res.render('games');
+    } catch (err) {
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
+    }
+  });
+
+  router.get('/list-item', async (req, res) => {
+    try {
+      res.render('list-item');
+    } catch (err) {
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
+    }
+  });
+
+  router.get('/orders', async (req, res) => {
+    try {
+      res.render('orders');
+    } catch (err) {
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
+    }
+  });
+
   router.post('/create-checkout-session', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: [

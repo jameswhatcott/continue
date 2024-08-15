@@ -7,25 +7,32 @@ Cart.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            primaryKey: true,
             autoIncrement: true,
-            primaryKey: true
-        },
-        gameConsole_id: {
-            type: DataTypes.INTEGER,
+          },
+          user_id: {
+            type: DataTypes.INTEGER, // Change this to INTEGER
             allowNull: false,
-            primaryKey: true
-        },
-       user_id:{
-            type: DataTypes.STRING,
-            allowNull: false,
-            primaryKey: true
-        },
-       quantity:{
+            references: {
+              model: 'user',
+              key: 'id'
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
+          },
+          game_id: {
             type: DataTypes.INTEGER,
-            allowNull: true
+            references: {
+              model: 'game',
+              key: 'id'
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
+          },
         },
-    },
+
+          // other fields...
+        
     {
         sequelize,
         timestamps: false,
