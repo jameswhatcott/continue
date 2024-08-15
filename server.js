@@ -8,6 +8,12 @@ const hbs = exphbs.create({});
 const routes = require('./controllers');
 const PORT = 3001;
 
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+
+// Other middleware and routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 const sequelize = require('./config/connection');

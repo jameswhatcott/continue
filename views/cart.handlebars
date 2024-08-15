@@ -1,0 +1,36 @@
+<h1>Checkout</h1>
+
+{{#if cart.length}}
+  <table>
+    <thead>
+      <tr>
+        <th>Game</th>
+        <th>Console</th>
+        <th>Condition</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each cart}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.console}}</td>
+          <td>{{this.condition}}</td>
+          <td>${{this.price_at_time}}</td>
+          <td>{{this.quantity}}</td>
+          <td>${{multiply this.price_at_time this.quantity}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h3>Grand Total: ${{calculateTotal cart}}</h3>
+
+  <form action="/create-checkout-session" method="POST">
+    <button type="submit">Complete Purchase</button>
+  </form>
+{{else}}
+  <p>Your cart is empty.</p>
+{{/if}}
