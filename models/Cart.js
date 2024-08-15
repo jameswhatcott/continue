@@ -4,7 +4,7 @@ const sequelize = require('../config/connection');
 class Cart extends Model{}
 
 Cart.init(
-            primaryKey: true
+            primaryKey: {true
         },
        user_id:{
             type: DataTypes.STRING,
@@ -20,7 +20,7 @@ Cart.init(
             onDelete: 'CASCADE',
             onUpdate: 'CASCADE'
           },
-          game_id: {
+          game_id: 
     {
         sequelize,
         timestamps: false,
