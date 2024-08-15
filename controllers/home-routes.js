@@ -3,20 +3,23 @@ const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQK
 const express = require('express');
 
 
-const { Game, User } = require('../models');
+const { Game, User, Console } = require('../models');
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
 
 
 router.get('/', async (req, res) => {
-    try {
-      res.render('homepage');
-    } catch (err) {
-      console.error('Error in root route:', err);  // Log the error
+  try {
+    const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+
+    res.render('homepage', { consoles }); // Pass consoles to Handlebars
+  } catch (err) {
+    console.error('Error in root route:', err);
     res.status(500).send('Internal Server Error');
-    }
-  })
+  }
+});
   router.get('/cart', async (req, res) => {
     try {
       res.render('cart');

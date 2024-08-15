@@ -16,6 +16,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
+
+app.get('/style.css', (req, res) => {
+  res.setHeader('Content-Type', 'text/css');
+  res.sendFile(path.join(__dirname, 'public/style.css'));
+});
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 const sequelize = require('./config/connection');
 require('dotenv').config();
 const {Game, User, Console} = require('./models')
