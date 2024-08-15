@@ -3,7 +3,7 @@ const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQK
 const express = require('express');
 
 
-const { Game, User, Console, game } = require('../models');
+const { Game, User, Console, gamesConsoles } = require('../models');
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
@@ -54,26 +54,28 @@ router.get('/', async (req, res) => {
     }
   });
 
-  router.get('/games/:consoleId', async (req, res) => {
+  router.get('/games/:console_id', async (req, res) => {
+    const consoleId = req.params.console_id;
+
     try {
-      const consoleData = await Console.findByPk(req.params.id, {
-          include: {
-              model: Game,
-              through: {
-                  model: gamesConsoles,
-                  attributes: ['price', 'condition', 'stock'],
-              },
-          },
-      });
+        const consoleData = await Console.findByPk(consoleId, {
+            include: {
+                model: Game,
+                through: {
+                    model: gamesConsoles,
+                    attributes: ['price', 'condition', 'stock'],
+                },
+            },
+        });
 
-      if (!consoleData) {
-          res.status(404).json({ message: 'No console found with this id!' });
-          return;
-      }
+        if (!consoleData) {
+            res.status(404).json({ message: 'No console found with this id!' });
+            return;
+        }
 
-      const console = consoleData.get({ plain: true });
+        const console = consoleData.get({ plain: true });
 
-      res.render('console-games', { console, games: console.games });
+        res.render('games', { console, games: console.games });
     } catch (error) {
       console.error('Error fetching games:', error);
       res.status(500).send('Internal Server Error');
