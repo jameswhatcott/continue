@@ -10,15 +10,15 @@
     <nav>
       <a href="/">Home</a>
       <div class="dropdown">
-  <a href="/games">Games</a>
-  <div class="dropdown-content">
-    <ul>
-      {{#each consoles as |console|}}
-        <li><a href="/games/{{console.id}}">{{console.console}}</a></li>
-      {{/each}}
-    </ul>
-  </div>
-</div>
+        <a href="/games">Games</a>
+        <div class="dropdown-content">
+          <ul>
+            {{#each consoles as |console|}}
+            <li><a href="/games/{{console.id}}">{{console.console}}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
 
       <a href="/orders">Your Orders</a>
       <a href="/list-item">List an Item</a>
