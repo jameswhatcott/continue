@@ -1,21 +1,17 @@
-const router = require('express').Router();
-const cartRoutes = require('./cartRoutes');
-const consoleRoutes = require('./consoleRoutes');
-const gameRoutes = require('./consoleRoutes');
+const express = require('express');
+const router = express.Router();
+const cartRoutes = require('./cartRoute');
+const ConsoleRoutes = require('./ConsoleRoutes');
+const gameRoutes = require('./gameRoutes');
 const gamesConsoleRoutes = require('./gamesConsoleRoutes');
 const userRoutes = require('./userRoute');
-const checkoutRoute = require('./checkoutRoute');
-const cancelRoute = require('./cancelRoute');
 
-
-router.use('/users', userRoutes);
+// Define routes
+router.use('/user', userRoutes);
 router.use('/cart', cartRoutes);
-router.use('/consoles', consoleRoutes);
+router.use('/consoles', ConsoleRoutes);
 router.use('/games', gameRoutes);
 router.use('/gamesConsole', gamesConsoleRoutes);
-router,use('/checkout', checkoutRoute);
-router.use('/cancel', cancelRoute);
 
-
-module.exports = router
+module.exports = router;
 
