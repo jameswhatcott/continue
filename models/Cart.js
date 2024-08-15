@@ -4,16 +4,6 @@ const sequelize = require('../config/connection');
 class Cart extends Model{}
 
 Cart.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        gameConsole_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
             primaryKey: true
         },
        user_id:{
@@ -22,16 +12,21 @@ Cart.init(
             primaryKey: true
         },
        quantity:{
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-    },
+=======
+            references: {
+              model: 'user',
+              key: 'id'
+            },
+            onDelete: 'CASCADE',
+            onUpdate: 'CASCADE'
+          },
+          game_id: {
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Cart',
+        modelName: 'cart',
     }  
 )
 
