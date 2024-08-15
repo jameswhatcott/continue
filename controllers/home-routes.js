@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQKUHgla6fLrH6mbC8de2VdibW697xwogpjkjufDL5nbdpBtXdXzvl00wI2AUdvd');
-const express = require('express');
+const withAuth = require('../utils/auth');
 
 
 const { Game, User, Console, gamesConsoles } = require('../models');
