@@ -51,6 +51,22 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.get('/games/:consoleId', async (req, res) => {
+    try {
+      const consoleId = req.params.consoleId;
+      const console = await Console.findByPk(consoleId);
+      const games = await Game.findAll({ where: { console_id: consoleId } });
+      
+      res.render('games', {
+        consoleName: console.name,
+        games: games
+      });
+    } catch (error) {
+      console.error('Error fetching games:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+
   router.get('/list-item', async (req, res) => {
     try {
       res.render('list-item');

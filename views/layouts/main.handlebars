@@ -2,14 +2,23 @@
 <html>
   <head>
     <title>continue</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../public/style.css">
     <script src="https://js.stripe.com/v3/"></script>
   </head>
   <body>
     <h1>Continue</h1>
     <nav>
       <a href="/">Home</a>
+      <div class="dropdown">
       <a href="/games">Games</a>
+      <div class="dropdown-content">
+      <ul>
+        {{#each consoles as |console|}}
+          <li><a href="/games/{{console.id}}">{{console.name}}</a></li>
+        {{/each}}
+      </ul>
+      </div>
+      </div>
       <a href="/orders">Your Orders</a>
       <a href="/list-item">List an Item</a>
       <a href="/cart">Cart</a>
