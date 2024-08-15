@@ -51,8 +51,7 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 
-sequelize.sync({ force: true }).then(() => {
- app.listen(3001, () => console.log(`Running on port ${PORT}`));
-
+sequelize.sync({ force: false }).then(() => {
+  app.listen(3001, () => console.log('Now listening'));
 });
 
