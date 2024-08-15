@@ -1,0 +1,767 @@
+/* background color*/
+.screen {
+    background-color: #161616;
+  }
+  /*replace with logo*/
+.text {
+    color: #ffffff;
+    font-size: 40px;
+    font-family: "Roboto";
+    letter-spacing: -1px;
+    line-height: 52px;
+  }
+  /*log in button */
+  .button {
+    cursor: pointer;
+    top: 72px;
+    left: 988px;
+    width: 142px;
+    height: 62px;
+    padding: 0px 8px;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #323232;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    line-height: 28px;
+    outline: none;
+  }
+  /* join now button*/
+  .button {
+    cursor: pointer;
+    top: 72px;
+    left: 1146px;
+    width: 150px;
+    height: 62px;
+    padding: 0px 8px;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #323232;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    line-height: 28px;
+    outline: none;
+  }
+/* place holder image*/
+  .image {
+    top: 260px;
+    left: 144px;
+    width: 192px;
+    height: 192px;
+    border-radius: 24px;
+    background-image: url(./image.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  /*Text: Discover the best retro games collection*/
+  .text {
+    color: #ffffff;
+    font-size: 72px;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    line-height: 92px;
+    text-align: center;
+  }
+  /*search bar for games */
+  .input {
+    top: 560px;
+    left: 390px;
+    width: 500px;
+    height: 60px;
+    padding: 0px 8px;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #323232;
+    color: #c0c0c0;
+    font-size: 18px;
+    font-family: "Source Sans Pro";
+    font-weight: 500;
+    line-height: 28px;
+    outline: none;
+  }
+  /*explore button */
+  .button {
+    cursor: pointer;
+    top: 560px;
+    left: 906px;
+    width: 145px;
+    height: 60px;
+    padding: 0px 8px;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #323232;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: "Source Sans Pro";
+    font-weight: 600;
+    line-height: 28px;
+    outline: none;
+  }
+  /*place holder image */
+  .image {
+    top: 446px;
+    left: 1111px;
+    width: 176px;
+    height: 176px;
+    border-radius: 24px;
+    background-image: url(./image.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+/*bar horizontal*/  
+.divider-horizontal {
+    top: 862px;
+    left: 144px;
+    width: 1152px;
+    height: 2px;
+    background-color: #323232;
+    border-radius: 2px;
+  }
+/*explore our section */  
+.text {
+    color: #ffffff;
+    font-size: 32px;
+    font-family: "Source Sans Pro";
+    font-weight: 700;
+    line-height: 48px;
+  }
+/* drop down arrow*/
+.icon {
+    color: #ffffff;
+    fill: #ffffff;
+    font-size: 24px;
+    top: 908px;
+    left: 1272px;
+    width: 24px;
+    height: 24px;
+  }
+   /*grey bar horizontal */ 
+   .divider-horizontal {
+    top: 976px;
+    left: 144px;
+    width: 1152px;
+    height: 2px;
+    background-color: #323232;
+    border-radius: 2px;
+  }  
+   /*place holder image */
+   .image {
+    top: 1024px;
+    left: 144px;
+    width: 320px;
+    height: 320px;
+    border-radius: 24px;
+    background-image: url(./image.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }  
+   /*text:pick your console */
+   .text {
+    color: #ffffff;
+    font-size: 32px;
+    font-family: "Source Sans Pro";
+    font-weight: 700;
+    line-height: 48px;
+  }  
+   /*text:Enter your shipping address. Get your favorite retro games delivered hassle-free. */ 
+   .text {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Source Sans Pro";
+    line-height: 30px;
+  }
+   /*grey bar vertical */
+   .divider-vertical {
+    top: 976px;
+    left: 512px;
+    width: 2px;
+    height: 610px;
+    background-color: #323232;
+    border-radius: 2px;
+  }
+   /*place holder image*/
+   .image {
+    top: 1024px;
+    left: 561px;
+    width: 320px;
+    height: 320px;
+    border-radius: 24px;
+    background-image: url(./image.png);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }  
+    /*text:chose your game*/
+    .text {
+        color: #ffffff;
+        font-size: 32px;
+        font-family: "Source Sans Pro";
+        font-weight: 700;
+        line-height: 48px;
+      }
+    /* text:Select a game and console. Your next retro gaming adventure awaits.*/ 
+.text {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Source Sans Pro";
+    line-height: 30px;
+  }
+    /*grey bar vertical */ 
+    .divider-vertical {
+        top: 976px;
+        left: 926px;
+        width: 2px;
+        height: 610px;
+        background-color: #323232;
+        border-radius: 2px;
+      }
+      /* place holder image*/ 
+      .image {
+        top: 1024px;
+        left: 974px;
+        width: 320px;
+        height: 320px;
+        border-radius: 24px;
+        background-image: url(./image.png);
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      /*text:Place your order */ 
+      .text {
+        color: #ffffff;
+        font-size: 32px;
+        font-family: "Source Sans Pro";
+        font-weight: 700;
+        line-height: 48px;
+      }      
+      /* text:Complete your purchase. Sit back and enjoy the nostalgia!*/ 
+      .text {
+        color: #ffffff;
+        font-size: 20px;
+        font-family: "Source Sans Pro";
+        line-height: 30px;
+      }
+      /* grey bar*/
+      .divider-horizontal {
+        top: 1586px;
+        left: 144px;
+        width: 1152px;
+        height: 2px;
+        background-color: #323232;
+        border-radius: 2px;
+      }
+       /* text:Join Continue*/ 
+       .text {
+        color: #ffffff;
+        font-size: 32px;
+        font-family: "Source Sans Pro";
+        font-weight: 700;
+        line-height: 48px;
+      }
+      /*drop down arrow */
+      .icon {
+        color: #ffffff;
+        fill: #ffffff;
+        font-size: 24px;
+        top: 1632px;
+        left: 1273px;
+        width: 24px;
+        height: 31px;
+      }
+       /*grey bar */
+       .divider-horizontal {
+        top: 1700px;
+        left: 144px;
+        width: 1152px;
+        height: 2px;
+        background-color: #323232;
+        border-radius: 2px;
+      }      
+        /* place holder image*/
+        .image {
+            top: 1726px;
+            left: 296px;
+            width: 360px;
+            height: 360px;
+            border-radius: 24px;
+            background-image: url(./image.png);
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+           /*text:as a player */
+           .text {
+            color: #ffffff;
+            font-size: 32px;
+            font-family: "Source Sans Pro";
+            font-weight: 700;
+            line-height: 48px;
+          }
+            /*text:Earn rewards by buying and selling retro games. Dive into the world of classic gaming.*/
+            .text {
+                color: #ffffff;
+                font-size: 20px;
+                font-family: "Source Sans Pro";
+                line-height: 30px;
+              }
+            /*play now button */ 
+            .button {
+                cursor: pointer;
+                top: 1968px;
+                left: 984px;
+                width: 192px;
+                height: 62px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 18px;
+                font-family: "Source Sans Pro";
+                font-weight: 600;
+                line-height: 28px;
+                outline: none;
+              }
+              /* grey bar*/ 
+              .divider-horizontal {
+                top: 2110px;
+                left: 144px;
+                width: 1152px;
+                height: 2px;
+                background-color: #323232;
+                border-radius: 2px;
+              }
+              /*place holder image */ 
+              .image {
+                top: 2136px;
+                left: 296px;
+                width: 360px;
+                height: 360px;
+                border-radius: 24px;
+                background-image: url(./image.png);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+              /* text:as a seller*/ 
+              .text {
+                color: #ffffff;
+                font-size: 32px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 48px;
+              }
+              /* text:List your retro games for sale and reach a wide audience of gaming enthusiasts.*/ 
+              .text {
+                color: #ffffff;
+                font-size: 20px;
+                font-family: "Source Sans Pro";
+                line-height: 30px;
+              }
+              /*Sell with us button */ 
+              .button {
+                cursor: pointer;
+                top: 2378px;
+                left: 984px;
+                width: 222px;
+                height: 62px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 18px;
+                font-family: "Source Sans Pro";
+                font-weight: 600;
+                line-height: 28px;
+                outline: none;
+              }
+              /* grey bar*/ 
+              .divider-horizontal {
+                top: 2520px;
+                left: 144px;
+                width: 1152px;
+                height: 2px;
+                background-color: #323232;
+                border-radius: 2px;
+              }
+              /*place holder image */ 
+              .image {
+                top: 2546px;
+                left: 296px;
+                width: 360px;
+                height: 360px;
+                border-radius: 24px;
+                background-image: url(./image.png);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+              /* text:As a team member*/ 
+              .text {
+                color: #ffffff;
+                font-size: 32px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 48px;
+              }
+              /*text:Join a community passionate about preserving gaming history. */ 
+              .text {
+                color: #ffffff;
+                font-size: 20px;
+                font-family: "Source Sans Pro";
+                line-height: 30px;
+              }
+              /* join our team button*/ 
+              .button {
+                cursor: pointer;
+                top: 2788px;
+                left: 984px;
+                width: 212px;
+                height: 62px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 18px;
+                font-family: "Source Sans Pro";
+                font-weight: 600;
+                line-height: 28px;
+                outline: none;
+              }
+              /*grey bar */ 
+              .divider-horizontal {
+                top: 2930px;
+                left: 144px;
+                width: 1152px;
+                height: 2px;
+                background-color: #323232;
+                border-radius: 2px;
+              }
+              /*text:get our app now */ 
+              .text {
+                color: #ffffff;
+                font-size: 32px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 48px;
+              }
+              /* drop down arrow*/ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 24px;
+                top: 2976px;
+                left: 1273px;
+                width: 24px;
+                height: 24px;
+              }
+              /* text:order with ease*/ 
+              .text {
+                color: #ffffff;
+                font-size: 32px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 48px;
+              }
+              /*text:Enjoy a blast from the past with Continue. Find your favorite retro games and consoles with our easy-to-use platform. */ 
+              .text {
+                color: #ffffff;
+                font-size: 20px;
+                font-family: "Source Sans Pro";
+                line-height: 30px;
+              }
+              /*get app button */ 
+              .button {
+                cursor: pointer;
+                top: 3326px;
+                left: 144px;
+                width: 177px;
+                height: 62px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 18px;
+                font-family: "Source Sans Pro";
+                font-weight: 600;
+                line-height: 28px;
+                outline: none;
+              }
+              /* place holder image*/ 
+              .image {
+                top: 3069px;
+                left: 783px;
+                width: 360px;
+                height: 360px;
+                border-radius: 24px;
+                background-image: url(./image.png);
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+              }
+              /* grey bar*/ 
+              .divider-horizontal {
+                top: 3453px;
+                left: 144px;
+                width: 1152px;
+                height: 2px;
+                background-color: #323232;
+                border-radius: 2px;
+              }
+              /*footer background */ 
+              .footer {
+                top: 3694px;
+                left: 1px;
+                width: 1440px;
+                height: 267px;
+                background-color: #323232;
+              }
+              /* text:Discover more retro treasures! Join our mailing list for exclusive offers!*/ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                font-weight: 600;
+                line-height: 18px;
+              }
+              /* enter ur email*/ 
+              .input {
+                top: 3715px;
+                left: 957px;
+                width: 343px;
+                height: 39px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                box-shadow: 2px 2px 4px rgba(255,255,255,0.1);
+                background-color: #323232;
+                color: #c0c0c0;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 19px;
+                outline: none;
+              }
+              /* sign up button*/ 
+              .button {
+                cursor: pointer;
+                top: 3715px;
+                left: 1310px;
+                width: 82px;
+                height: 39px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #000000;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+                outline: none;
+              }
+              /*text:continue gaming */ 
+              .text {
+                color: #ffffff;
+                font-size: 24px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 31px;
+              }
+              /*indeed logo */ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 24px;
+                top: 3853px;
+                left: 48px;
+                width: 24px;
+                height: 24px;
+              }
+              /*twitter logo */ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 24px;
+                top: 3853px;
+                left: 84px;
+                width: 24px;
+                height: 24px;
+              }
+              /*instagram logo */ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 24px;
+                top: 3853px;
+                left: 120px;
+                width: 24px;
+                height: 24px;
+              }
+              /*text:help center */ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 18px;
+              }
+              /*FAQ button* */ 
+              .button {
+                cursor: pointer;
+                top: 3837px;
+                left: 777px;
+                width: 149px;
+                height: 18px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+                outline: none;
+              }
+              
+              /*customer support button */
+              .button {
+                cursor: pointer;
+                top: 3855px;
+                left: 779px;
+                width: 149px;
+                height: 36px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+                outline: none;
+              }
+              /*how to play button */ 
+              .button {
+                cursor: pointer;
+                top: 3897px;
+                left: 777px;
+                width: 149px;
+                height: 18px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+                outline: none;
+              }
+              /*title faqs */ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 18px;
+              }
+              /*privacy policy button */ 
+              .button {
+                cursor: pointer;
+                top: 3837px;
+                left: 994px;
+                width: 149px;
+                height: 18px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+                outline: none;
+              }
+              /* site map button*/ 
+              .button {
+                cursor: pointer;
+                top: 3863px;
+                left: 977px;
+                width: 149px;
+                height: 21px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+                outline: none;
+              }
+              /*sub button */ 
+              .button {
+                cursor: pointer;
+                top: 3894px;
+                left: 994px;
+                width: 149px;
+                height: 18px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #323232;
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Roboto";
+                line-height: 20px;
+                outline: none;
+                .text {
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-family: "Source Sans Pro";
+                    font-weight: 700;
+                    line-height: 18px;
+                  }
+                }
+              /*text:contact us*/ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 18px;
+              }
+              /*text: (phone number) */ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+              }
+              /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ 
