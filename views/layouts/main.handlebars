@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>continue</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Continue</title>
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="/script.js"></script>
+    <script src="/js/script.js"></script>
   </head>
   <body>
     <h1>Continue</h1>
     <nav>
       <a href="/">Home</a>
       <!-- Dropdown Menu -->
-<div class="dropdown">
-    <a href="/games">Games</a>
-    <div class="dropdown-content">
-        <ul>
+      <div class="dropdown">
+        <a href="/games">Games</a>
+        <div class="dropdown-content">
+          <ul>
             {{#each consoles as |console|}}
             <li><a href="/games/{{console.id}}">{{console.console}}</a></li>
             {{/each}}
-        </ul>
-    </div>
-</div>
+          </ul>
+        </div>
+      </div>
       <a href="/orders">Your Orders</a>
       <a href="/list-item">List an Item</a>
       <a href="/cart">Cart</a>
+      {{#if loggedIn}}
+        <a href="/logout">Logout</a>
+      {{else}}
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a>
+      {{/if}}
     </nav>
     <main>
-         {{{body}}}
+      {{{body}}}
+      {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+      {{/if}}
     </main>
   </body>
 </html>
