@@ -3,7 +3,7 @@ const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQK
 const withAuth = require('../utils/auth');
 
 
-const { Game, User, Console, gamesConsoles } = require('../models');
+const { Game, User, Console, gamesConsoles, Cart } = require('../models');
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
@@ -20,6 +20,17 @@ router.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+<<<<<<< HEAD
+
+  // router.get('/cart', async (req, res) => {
+  //   try {
+  //     res.render('cart');
+  //   } catch (err) {
+  //     console.error('Error in root route:', err);  // Log the error
+  //   res.status(500).send('Internal Server Error');
+  //   }
+  // })
+=======
   router.get('/cart', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
@@ -30,6 +41,7 @@ router.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
     }
   })
+>>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
   router.get('/success', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
@@ -136,6 +148,51 @@ router.get('/', async (req, res) => {
     res.redirect(303, session.url);
   });
 
+<<<<<<< HEAD
+  // Route to fetch all items in a user's cart and render them in a Handlebars template
+router.get('/cart', async (req, res) => {
+  try {
+    const userId = 1; // Assuming you have user authentication and the user ID is available in req.user
+
+    // Find all items in the user's cart
+    const cartItems = await Cart.findAll({
+      where: { user_id: 1 },
+      include: [
+        {
+          model: gamesConsoles,
+          include: [
+            {
+              model: Game,
+              attributes: ['title'], // Include the game title
+            },
+            {
+              model: Console,
+              attributes: ['console'], // Include the console information
+            },
+          ],
+          attributes: ['price'], // Include the price from gamesConsoles
+        },
+      ],
+    });
+    console.log(cartItems[0].gamesConsole.game.title);
+    // Format the response data for the template
+    const formattedCartItems = cartItems.map((item) => ({
+      title: item.gamesConsole.game.title,
+      console: item.gamesConsole.console.console,
+      price: item.gamesConsole.price,
+      quantity: item.quantity,
+    }));
+
+    // Render the Handlebars template 'cart' with the cart items
+    res.render('cart', { cartItems: formattedCartItems });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to retrieve cart items.' });
+  }
+});
+
+module.exports = router;
+=======
   router.get('/signup', (req, res) => {
     res.render('signup');
   });
@@ -178,5 +235,6 @@ router.get('/', async (req, res) => {
   router.get('/login', (req, res) => {
     res.render('login');
   });
+>>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
 
   module.exports = router

@@ -1,5 +1,15 @@
-const router = require('express').Router();
+const express = require('express');
 const { Console } = require('../../models');
+<<<<<<< HEAD
+const router = express.Router();
+
+// Define routes here
+router.get('/', (req, res) => {
+    res.send('Console routes');
+});
+
+module.exports = router;
+=======
 
 // GET all consoles
 router.get('/', async (req, res) => {
@@ -29,3 +39,4 @@ router.get('/:id', async (req, res) => {
 
 module.exports = router;
 
+>>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
