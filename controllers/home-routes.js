@@ -136,4 +136,34 @@ router.get('/', async (req, res) => {
     res.redirect(303, session.url);
   });
 
+  router.get('/signup', (req, res) => {
+    res.render('signup');
+  });
+  
+  
+  router.post('/signup', async (req, res) => {
+    try {
+      const newUser = await User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+      });
+  
+      req.session.save(() => {
+        req.session.user_id = newUser.id;
+        req.session.loggedIn = true;
+  
+        res.status(200).json(newUser);
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
+  // Login route
+  router.get('/login', (req, res) => {
+    res.render('login');
+  });
+
   module.exports = router
