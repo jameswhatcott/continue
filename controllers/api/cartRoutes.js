@@ -4,6 +4,30 @@ const router = express.Router();
 const Cart = require('../../models/Cart'); // Adjust the path as necessary
 const Game = require('../../models/Game'); // Assuming you have a Game model
 
+router.post('/add', async (req, res) => {
+  // Add logic to handle adding a game to the cart
+  try {
+      // Example logic to add a game to the cart
+      const { userId, gameId, quantity } = req.body;
+
+      // Assuming you have a Cart model set up
+      await Cart.create({
+          user_id: userId,
+          game_id: gameId,
+          quantity: quantity,
+      });
+
+      res.status(200).json({ message: 'Game added to cart' });
+  } catch (err) {
+      res.status(500).json({ error: 'Failed to add game to cart' });
+  }
+});
+
+
+
+
+
+
 // Add item to cart
 router.post('/add', async (req, res) => {
   const { user_id, game_id, quantity } = req.body;
