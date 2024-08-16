@@ -20,7 +20,7 @@ Cart.init(
         type: DataTypes.INTEGER,
         allowNull: true    
           },
-          game_id: {
+          gameConsole_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
         }, 

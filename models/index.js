@@ -29,13 +29,13 @@ User.hasMany(Cart, {
     foreignKey: 'user_id',
   });
   
-  Game.hasMany(Cart, {
-    foreignKey: 'game_id',
+  gamesConsoles.hasMany(Cart, {
+    foreignKey: 'gameConsole_id',
     onDelete: 'CASCADE',
   });
   
-  Cart.belongsTo(Game, {
-    foreignKey: 'game_id',
+  Cart.belongsTo(gamesConsoles, {
+    foreignKey: 'gameConsole_id',
   });
 
 
