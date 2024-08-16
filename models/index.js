@@ -40,6 +40,7 @@ User.hasMany(Cart, {
 
 
 
+
 module.exports = {User, Game, Console, Cart, gamesConsoles}
 
 
