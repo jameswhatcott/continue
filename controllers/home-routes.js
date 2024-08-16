@@ -144,27 +144,27 @@ router.get('/', async (req, res) => {
   router.post('/signup', async (req, res) => {
     try {
       const { username, email, password } = req.body;
-      console.log(req.body);  // Log the received request body to verify the data
-      if (!username || !email || !password) {
-        return res.status(400).json({ message: 'Please provide all required fields.' });
-      }
   
+      // Create the new user
       const newUser = await User.create({
         username,
         email,
         password,
       });
   
+      // Save the session after successful signup
       req.session.save(() => {
         req.session.user_id = newUser.id;
         req.session.loggedIn = true;
   
+        // Redirect to the homepage
         res.status(200).json(newUser);
       });
     } catch (err) {
       res.status(500).json(err);
     }
   });
+  
   
   
   // Login route

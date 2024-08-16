@@ -5,9 +5,8 @@ const signupFormHandler = async (event) => {
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
-  console.log({ username, email, password });  // Log the values to verify they're being captured correctly
-
   if (username && email && password) {
+    // Send a POST request to the signup route
     const response = await fetch('/signup', {
       method: 'POST',
       body: JSON.stringify({ username, email, password }),
@@ -15,6 +14,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      // If successful, redirect the browser to the homepage
       document.location.replace('/');
     } else {
       alert('Failed to sign up.');
@@ -23,3 +23,5 @@ const signupFormHandler = async (event) => {
     alert('Please fill out all fields.');
   }
 };
+
+document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
