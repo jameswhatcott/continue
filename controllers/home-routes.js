@@ -22,7 +22,9 @@ router.get('/', async (req, res) => {
 });
   router.get('/cart', async (req, res) => {
     try {
-      res.render('cart');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('cart', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -30,7 +32,9 @@ router.get('/', async (req, res) => {
   })
   router.get('/success', async (req, res) => {
     try {
-      res.render('success');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('success', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -38,7 +42,7 @@ router.get('/', async (req, res) => {
   });
   router.get('/cancel', async (req, res) => {
     try {
-      res.render('cancel');
+      res.render('cancel', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -47,7 +51,9 @@ router.get('/', async (req, res) => {
 
   router.get('/games', async (req, res) => {
     try {
-      res.render('games');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('games', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -56,8 +62,12 @@ router.get('/', async (req, res) => {
 
   router.get('/games/:console_id', async (req, res) => {
     const consoleId = req.params.console_id;
+    const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
 
     try {
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
         const consoleData = await Console.findByPk(consoleId, {
             include: {
                 model: Game,
@@ -75,7 +85,7 @@ router.get('/', async (req, res) => {
 
         const console = consoleData.get({ plain: true });
 
-        res.render('games', { console, games: console.games });
+        res.render('games', { console, games: console.games, consoles });
     } catch (error) {
       console.error('Error fetching games:', error);
       res.status(500).send('Internal Server Error');
@@ -85,7 +95,9 @@ router.get('/', async (req, res) => {
 
   router.get('/list-item', async (req, res) => {
     try {
-      res.render('list-item');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('list-item', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -94,7 +106,9 @@ router.get('/', async (req, res) => {
 
   router.get('/orders', async (req, res) => {
     try {
-      res.render('orders');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('orders', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
