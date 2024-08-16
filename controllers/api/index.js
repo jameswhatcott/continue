@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const cartRoutes = require('./cartRoutes');
-const consoleRoutes = require('./consoleRoutes');
-const gameRoutes = require('./consoleRoutes');
+const consoleRoutes = require('./ConsoleRoutes');
+const gameRoutes = require('./gameRoutes');
 const gamesConsoleRoutes = require('./gamesConsoleRoutes');
 const userRoutes = require('./userRoute');
 
