@@ -145,6 +145,11 @@ router.get('/', async (req, res) => {
     try {
       const { username, email, password } = req.body;
   
+      // Validate input data
+      if (!username || !email || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+  
       // Create the new user
       const newUser = await User.create({
         username,
@@ -161,9 +166,11 @@ router.get('/', async (req, res) => {
         res.status(200).json(newUser);
       });
     } catch (err) {
-      res.status(500).json(err);
+      console.error('Signup error:', err);
+      res.status(500).json({ message: 'Failed to sign up', error: err.message });
     }
   });
+  
   
   
   
