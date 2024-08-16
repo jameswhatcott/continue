@@ -60,14 +60,19 @@ const gameConsoleData = [
     { console_id: 5, game_id: 50, price: 21.99, condition: 'Used', stock:10}
 ]
 
-const seedGameConsoles = async () => {
-    try {
-        await gamesConsoles.bulkCreate(gameConsoleData, { returning: true });
-        console.log('GameConsole data has been seeded successfully.');
-    } catch (err) {
-        console.error('Error seeding GameConsole data:', err);
-    }
-};
+// const seedGameConsoles = async () => {
+//     try {
+//         await gamesConsoles.bulkCreate(gameConsoleData, { returning: true });
+//         console.log('GameConsole data has been seeded successfully.');
+//     } catch (err) {
+//         console.error('Error seeding GameConsole data:', err);
+//     }
+// };
+
+const seedGameConsoles = () => gamesConsoles.bulkCreate(gameConsoleData, { returning: true});
+
+module.exports = seedGameConsoles;
 
 
-seedGameConsoles();
+
+// seedGameConsoles();

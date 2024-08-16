@@ -20,6 +20,7 @@ router.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
+<<<<<<< HEAD
 
   // router.get('/cart', async (req, res) => {
   //   try {
@@ -29,9 +30,23 @@ router.get('/', async (req, res) => {
   //   res.status(500).send('Internal Server Error');
   //   }
   // })
+=======
+  router.get('/cart', async (req, res) => {
+    try {
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('cart', { consoles });
+    } catch (err) {
+      console.error('Error in root route:', err);  // Log the error
+    res.status(500).send('Internal Server Error');
+    }
+  })
+>>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
   router.get('/success', async (req, res) => {
     try {
-      res.render('success');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('success', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -39,7 +54,7 @@ router.get('/', async (req, res) => {
   });
   router.get('/cancel', async (req, res) => {
     try {
-      res.render('cancel');
+      res.render('cancel', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -48,7 +63,9 @@ router.get('/', async (req, res) => {
 
   router.get('/games', async (req, res) => {
     try {
-      res.render('games');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('games', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -57,8 +74,12 @@ router.get('/', async (req, res) => {
 
   router.get('/games/:console_id', async (req, res) => {
     const consoleId = req.params.console_id;
+    const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
 
     try {
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
         const consoleData = await Console.findByPk(consoleId, {
             include: {
                 model: Game,
@@ -76,7 +97,7 @@ router.get('/', async (req, res) => {
 
         const console = consoleData.get({ plain: true });
 
-        res.render('games', { console, games: console.games });
+        res.render('games', { console, games: console.games, consoles });
     } catch (error) {
       console.error('Error fetching games:', error);
       res.status(500).send('Internal Server Error');
@@ -86,7 +107,9 @@ router.get('/', async (req, res) => {
 
   router.get('/list-item', async (req, res) => {
     try {
-      res.render('list-item');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('list-item', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -95,7 +118,9 @@ router.get('/', async (req, res) => {
 
   router.get('/orders', async (req, res) => {
     try {
-      res.render('orders');
+      const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
+      res.render('orders', { consoles });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -123,6 +148,7 @@ router.get('/', async (req, res) => {
     res.redirect(303, session.url);
   });
 
+<<<<<<< HEAD
   // Route to fetch all items in a user's cart and render them in a Handlebars template
 router.get('/cart', async (req, res) => {
   try {
@@ -166,5 +192,49 @@ router.get('/cart', async (req, res) => {
 });
 
 module.exports = router;
+=======
+  router.get('/signup', (req, res) => {
+    res.render('signup');
+  });
+  
+  
+  router.post('/signup', async (req, res) => {
+    try {
+      const { username, email, password } = req.body;
+  
+      // Validate input data
+      if (!username || !email || !password) {
+        return res.status(400).json({ message: 'All fields are required' });
+      }
+  
+      // Create the new user
+      const newUser = await User.create({
+        username,
+        email,
+        password,
+      });
+  
+      // Save the session after successful signup
+      req.session.save(() => {
+        req.session.user_id = newUser.id;
+        req.session.loggedIn = true;
+  
+        // Redirect to the homepage
+        res.status(200).json(newUser);
+      });
+    } catch (err) {
+      console.error('Signup error:', err);
+      res.status(500).json({ message: 'Failed to sign up', error: err.message });
+    }
+  });
+  
+  
+  
+  
+  // Login route
+  router.get('/login', (req, res) => {
+    res.render('login');
+  });
+>>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
 
   module.exports = router

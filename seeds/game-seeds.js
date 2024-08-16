@@ -124,5 +124,10 @@ const seedAllGames = async () => {
     await seedXboxGames();
 };
 
+
+module.exports = seedAllGames;
+
+
+
 // Execute the seeding
-seedAllGames();
+// seedAllGames();
