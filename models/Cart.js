@@ -12,7 +12,7 @@ Cart.init(
             primaryKey: true
         },
        quantity:{
-=======
+
             references: {
               model: 'user',
               key: 'id'

@@ -764,4 +764,296 @@
                 font-family: "Source Sans Pro";
                 line-height: 18px;
               }
-              /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ 
+              /*page 2*/
+            
+              /*grey boarder */ 
+              .header {
+                top: 0px;
+                left: 0px;
+                width: 1440px;
+                height: 147px;
+                background-color: #323232;
+              }
+              /*text:continue gaming */ 
+              .text {
+                color: #ffffff;
+                font-size: 28px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 36px;
+              }
+              /* search bar*/ 
+              .input {
+                top: 26px;
+                left: 503px;
+                width: 383px;
+                height: 43px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                box-shadow: 2px 2px 4px rgba(255,255,255,0.1);
+                background-color: #323232;
+                color: #c0c0c0;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 19px;
+                outline: none;
+              }
+              /* search button*/ 
+              .button {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 26px;
+                left: 894px;
+                width: 43px;
+                height: 43px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                color: #ffffff;
+                background-color: #000000;
+                outline: none;
+              }
+              
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                width: 14px;
+                height: 14px;
+                font-size: 14px;
+              }
+              /*buy now button*/ 
+              .button {
+                cursor: pointer;
+                top: 20px;
+                left: 1268px;
+                width: 124px;
+                height: 54px;
+                padding: 0px 8px;
+                border: 0;
+                box-sizing: border-box;
+                border-radius: 24px;
+                background-color: #000000;
+                color: #ffffff;
+                font-size: 16px;
+                font-family: "Source Sans Pro";
+                font-weight: 600;
+                line-height: 21px;
+                outline: none;
+              }
+              /* grey bar*/ 
+              .divider-horizontal {
+                top: 94px;
+                left: 0px;
+                width: 1440px;
+                height: 1px;
+                background-color: #444444;
+                border-radius: 2px;
+              }
+              /*home icon */ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 20px;
+                top: 111px;
+                left: 48px;
+                width: 20px;
+                height: 20px;
+              }
+              /*text: home */ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 18px;
+                text-align: center;
+              }
+              /*video game icon */
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 20px;
+                top: 111px;
+                left: 176px;
+                width: 20px;
+                height: 20px;
+              }
+               /*text: Games */ 
+               .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+              }
+              /* drop down arrow*/
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 16px;
+                top: 113px;
+                left: 259px;
+                width: 16px;
+                height: 16px;
+              }
+               /* console icon*/ 
+               .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 20px;
+                top: 111px;
+                left: 308px;
+                width: 20px;
+                height: 20px;
+              }
+              /* text: console*/ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+              }
+              /* tag logo*/ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 20px;
+                top: 111px;
+                left: 1332px;
+                width: 20px;
+                height: 20px;
+              }
+              /*text:discount */ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+              }
+              /* search icon*/ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 20px;
+                top: 179px;
+                left: 48px;
+                width: 20px;
+                height: 20px;
+              }
+              /*text: search results */ 
+              .text {
+                color: #ffffff;
+                font-size: 14px;
+                font-family: "Source Sans Pro";
+                line-height: 18px;
+              }
+              /*text: Results for "customer input" */ 
+              .text {
+                color: #ffffff;
+                font-size: 32px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 42px;
+              }
+              /* grey bar*/ 
+              .divider-horizontal {
+                top: 281px;
+                left: 0px;
+                width: 1440px;
+                height: 1px;
+                background-color: #323232;
+                border-radius: 2px;
+              }
+              /* text: game condition*/ 
+              .text {
+                color: #ffffff;
+                font-size: 16px;
+                font-family: "Source Sans Pro";
+                font-weight: 700;
+                line-height: 22px;
+              }
+              /* drop down arrow*/ 
+              .icon {
+                color: #ffffff;
+                fill: #ffffff;
+                font-size: 20px;
+                top: 303px;
+                left: 281px;
+                width: 20px;
+                height: 20px;
+              }
+              /*check box */ 
+              .container {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+                pointer-events: auto;
+                color: rgba(22, 22, 22, 1);
+                background-color: rgba(50, 50, 50, 1);
+                border-radius: 5px;
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.08);
+                border: 0;
+              }
+              
+              .check {
+                display: none;
+                transition: left 0.3s ease;
+                z-index: 1;
+              }
+              
+              .input {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+                width: 1px;
+                height: 1px;
+                pointer-events: none;
+              }
+              /* text:new*/ 
+              .text {
+                color: #ffffff;
+                font-size: 16px;
+                font-family: "Source Sans Pro";
+                line-height: 20px;
+              }
+              /* check box*/ 
+              .container {
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                width: 20px;
+                height: 20px;
+                opacity: 1;
+                pointer-events: auto;
+                color: rgba(22, 22, 22, 1);
+                background-color: rgba(50, 50, 50, 1);
+                border-radius: 5px;
+                box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.08);
+                border: 0;
+              }
+              
+              .check {
+                display: none;
+                transition: left 0.3s ease;
+                z-index: 1;
+              }
+              
+              .input {
+                position: absolute;
+                opacity: 0;
+                visibility: hidden;
+                width: 1px;
+                height: 1px;
+                pointer-events: none;
+              }
+              /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ /* */ 

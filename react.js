@@ -1960,4 +1960,732 @@ const Text = (props) => {
 };
 
 export default Text;
-//
+//page 2//
+
+//grey border//
+import React from 'react';
+
+const styles = {
+  Header: {
+    top: '0px',
+    left: '0px',
+    width: '1440px',
+    height: '147px',
+    backgroundColor: '#323232',
+  },
+};
+
+const Header = (props) => {
+  return (
+    <div style={styles.Header}>
+      {props.children}
+    </div>
+  );
+};
+
+export default Header;
+//text: continue gaming//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '28px',
+    fontFamily: 'Source Sans Pro',
+    fontWeight: 700,
+    lineHeight: '36px',
+  },
+};
+
+const defaultProps = {
+  text: '
+        Continue Gaming
+    ',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//search bar//
+import React from 'react';
+
+const styles = {
+  Input: {
+    top: '26px',
+    left: '503px',
+    width: '383px',
+    height: '43px',
+    padding: '0px 8px',
+    border: '0',
+    boxSizing: 'border-box',
+    borderRadius: '24px',
+    boxShadow: '2px 2px 4px rgba(255,255,255,0.1)',
+    backgroundColor: '#323232',
+    color: '#c0c0c0',
+    fontSize: '14px',
+    fontFamily: 'Source Sans Pro',
+    lineHeight: '19px',
+    outline: 'none',
+  },
+};
+
+const defaultProps = {
+  text: ' Search retro games',
+};
+
+const InputField = (props) => {
+  return (
+    <input style={styles.Input} placeholder={props.text ?? defaultProps.text} />
+  );
+};
+
+export default InputField;
+//search button//
+import React from 'react';
+
+const styles = {
+  Button: {
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: '26px',
+    left: '894px',
+    width: '43px',
+    height: '43px',
+    border: '0',
+    boxSizing: 'border-box',
+    borderRadius: '24px',
+    color: '#ffffff',
+    backgroundColor: '#000000',
+    outline: 'none',
+  },
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    width: '14px',
+    height: '14px',
+    fontSize: '14px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none">
+    </path>
+    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const IconButton = (props) => {
+  return (
+    <button style={styles.Button}>
+      {
+        props.IconComponent 
+          ? <props.IconComponent style={styles.Icon} /> 
+          : <defaultProps.IconComponent />
+      }
+    </button>
+  );
+};
+
+export default IconButton;
+//buy now button//
+import React from 'react';
+
+const styles = {
+  Button: {
+    cursor: 'pointer',
+    top: '20px',
+    left: '1268px',
+    width: '124px',
+    height: '54px',
+    padding: '0px 8px',
+    border: '0',
+    boxSizing: 'border-box',
+    borderRadius: '24px',
+    backgroundColor: '#000000',
+    color: '#ffffff',
+    fontSize: '16px',
+    fontFamily: 'Source Sans Pro',
+    fontWeight: 600,
+    lineHeight: '21px',
+    outline: 'none',
+  },
+};
+
+const defaultProps = {
+  label: 'Buy now',
+};
+
+const Button = (props) => {
+  return (
+    <button style={styles.Button}>
+      {props.label ?? defaultProps.label}
+    </button>
+  );
+};
+
+export default Button;
+//home icon//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '20px',
+    top: '111px',
+    left: '48px',
+    width: '20px',
+    height: '20px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none">
+    </path>
+    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//text:home//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '14px',
+    fontFamily: 'Source Sans Pro',
+    fontWeight: 700,
+    lineHeight: '18px',
+    textAlign: 'center',
+  },
+};
+
+const defaultProps = {
+  text: 'Home',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//video game icon//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '20px',
+    top: '111px',
+    left: '176px',
+    width: '20px',
+    height: '20px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0v24h24V0H0zm23 16c0 1.1-.9 2-2 2H3c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h18c1.1 0 2 .9 2 2v8z" fill="none">
+    </path>
+    <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+// tex:games//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '14px',
+    fontFamily: 'Source Sans Pro',
+    lineHeight: '18px',
+  },
+};
+
+const defaultProps = {
+  text: 'Games',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//drop down arrow//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '16px',
+    top: '113px',
+    left: '259px',
+    width: '16px',
+    height: '16px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none">
+    </path>
+    <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//console icon//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '20px',
+    top: '111px',
+    left: '308px',
+    width: '20px',
+    height: '20px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none">
+    </path>
+    <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//text:console//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '14px',
+    fontFamily: 'Source Sans Pro',
+    lineHeight: '18px',
+  },
+};
+
+const defaultProps = {
+  text: 'Consoles',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//drop down arrow//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '16px',
+    top: '113px',
+    left: '393px',
+    width: '16px',
+    height: '16px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none">
+    </path>
+    <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//tag logo//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '20px',
+    top: '111px',
+    left: '1332px',
+    width: '20px',
+    height: '20px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none">
+    </path>
+    <path d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//text:discount//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '14px',
+    fontFamily: 'Source Sans Pro',
+    lineHeight: '18px',
+  },
+};
+
+const defaultProps = {
+  text: 'Discount',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//search icon//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '20px',
+    top: '179px',
+    left: '48px',
+    width: '20px',
+    height: '20px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none">
+    </path>
+    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//text: Results for "customer input"//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '32px',
+    fontFamily: 'Source Sans Pro',
+    fontWeight: 700,
+    lineHeight: '42px',
+  },
+};
+
+const defaultProps = {
+  text: 'Results for " ",
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//grey bar//
+import React from 'react';
+
+const styles = {
+  HorizontalDivider: {
+    top: '281px',
+    left: '0px',
+    width: '1440px',
+    height: '1px',
+    backgroundColor: '#323232',
+    borderRadius: '2px',
+  },
+};
+
+const HorizontalDivider = (props) => {
+  return (
+    <div style={styles.HorizontalDivider} />
+  );
+};
+
+export default HorizontalDivider;
+//text: game condition//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '16px',
+    fontFamily: 'Source Sans Pro',
+    fontWeight: 700,
+    lineHeight: '22px',
+  },
+};
+
+const defaultProps = {
+  text: 'Game condition',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
+//drop down arrow//
+import React from 'react';
+
+const styles = {
+  Icon: {
+    color: '#ffffff',
+    fill: '#ffffff',
+    fontSize: '20px',
+    top: '303px',
+    left: '281px',
+    width: '20px',
+    height: '20px',
+  },
+};
+
+const IconComponent = () => (
+  <svg style={styles.Icon}  viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none">
+    </path>
+    <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z">
+    </path>
+  </svg>
+);
+
+const defaultProps = {
+  IconComponent,
+};
+
+const Icon = (props) => {
+  return (
+    props.IconComponent 
+      ? <props.IconComponent style={styles.Icon} /> 
+      : <defaultProps.IconComponent />
+  );
+};
+
+export default Icon;
+//check box//
+import React from 'react';
+
+const styles = {
+  Container: {
+    cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
+    width: '20px',
+    height: '20px',
+    pointerEvents: 'auto',
+    color: 'rgba(22, 22, 22, 1)',
+    backgroundColor: 'rgba(50, 50, 50, 1)',
+    borderRadius: '5px',
+    boxShadow: '0px 0px 0px rgba(0, 0, 0, 0.08)',
+    border: 0,
+  },
+  Check: {
+    display: 'none',
+    transition: 'left 0.3s ease',
+    zIndex: 1,
+  },
+  Input: {
+    position: 'absolute',
+    opacity: 0,
+    visibility: 'hidden',
+    width: '1px',
+    height: '1px',
+    pointerEvents: 'none',
+  },
+};
+
+const Checkbox = () => {
+  const [isChecked, setIsChecked] = React.useState(false);
+
+  const onClick = () => {
+    setIsChecked(!isChecked);
+  }
+
+  return (
+    <div style={styles.Container} onClick={onClick}>
+      <div style={{
+        ...styles.Check,
+        display: isChecked ? 'block' : 'none',
+      }}>
+        ✓
+      </div>
+      <input type="checkbox" style={styles.Input} />
+    </div>
+  );
+};
+
+export default Checkbox;
+//text:new//
+import React from 'react';
+
+const styles = {
+  Text: {
+    color: '#ffffff',
+    fontSize: '16px',
+    fontFamily: 'Source Sans Pro',
+    lineHeight: '20px',
+  },
+};
+
+const defaultProps = {
+  text: 'New',
+};
+
+const Text = (props) => {
+  return (
+    <div style={styles.Text}>
+      {props.text ?? defaultProps.text}
+    </div>
+  );
+};
+
+export default Text;
