@@ -1,8 +1,8 @@
 // routes/cart.js
 const express = require('express');
 const router = express.Router();
-const Cart = require('../models/Cart'); // Adjust the path as necessary
-const Game = require('../models/Game'); // Assuming you have a Game model
+const Cart = require('../../models/Cart'); // Adjust the path as necessary
+const Game = require('../../models/Game'); // Assuming you have a Game model
 
 // Add item to cart
 router.post('/add', async (req, res) => {
