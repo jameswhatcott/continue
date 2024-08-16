@@ -62,6 +62,8 @@ router.get('/', async (req, res) => {
 
   router.get('/games/:console_id', async (req, res) => {
     const consoleId = req.params.console_id;
+    const consolesData = await Console.findAll(); // Fetch all consoles
+    const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
 
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
@@ -83,7 +85,7 @@ router.get('/', async (req, res) => {
 
         const console = consoleData.get({ plain: true });
 
-        res.render('games', { console, games: console.games });
+        res.render('games', { console, games: console.games, consoles });
     } catch (error) {
       console.error('Error fetching games:', error);
       res.status(500).send('Internal Server Error');

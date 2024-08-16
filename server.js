@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const hbs = exphbs.create({});
 const routes = require('./controllers');
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -52,6 +52,6 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(3001, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening'));
 });
 
