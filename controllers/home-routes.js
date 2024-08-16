@@ -143,10 +143,16 @@ router.get('/', async (req, res) => {
   
   router.post('/signup', async (req, res) => {
     try {
+      const { username, email, password } = req.body;
+      console.log(req.body);  // Log the received request body to verify the data
+      if (!username || !email || !password) {
+        return res.status(400).json({ message: 'Please provide all required fields.' });
+      }
+  
       const newUser = await User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
+        username,
+        email,
+        password,
       });
   
       req.session.save(() => {
@@ -156,10 +162,10 @@ router.get('/', async (req, res) => {
         res.status(200).json(newUser);
       });
     } catch (err) {
-      console.log(err);
       res.status(500).json(err);
     }
   });
+  
   
   // Login route
   router.get('/login', (req, res) => {
