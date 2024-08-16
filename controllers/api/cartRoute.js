@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const Cart = require('../../models/Cart'); // Adjust the path as necessary
 const Game = require('../../models/Game');
-const gamesConsole = require('../../models/gamesConsole'); // Assuming you have a Game model
+// const gamesConsole = require('../../models/gamesConsole'); // Assuming you have a Game model
+const gamesConsoles = require('../../models/gamesConsole');
 
 // Add item to cart
 router.post('/add', async (req, res) => {
@@ -57,15 +58,15 @@ router.get('/:user_id', async (req, res) => {
       where: { user_id },
       include: [
         {
-          // model: gamesConsole,
-          // required: true,
-          // include: [
-          //   {model: Game,
-          //     required: true
-          //   }
-          // ]
+          model: gamesConsoles,
+          required: true,
+          include: [
+            {model: Game,
+              required: true
+            }
+          ]
           // all: true, nested: true
-          model: Game // Include the Game model to get game details
+          // model: Game // Include the Game model to get game details
         // Assuming you have set an alias in the association
         }
       ]

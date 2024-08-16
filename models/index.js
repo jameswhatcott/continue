@@ -16,6 +16,14 @@ Game.belongsToMany(Console,{
     foreignKey: 'game_id'
 })
 
+gamesConsoles.belongsTo(Game,{
+  foreignKey: 'game_id'
+})
+
+gamesConsoles.belongsTo(Console,{
+  foreignKey: 'console_id'
+})
+
 User.hasMany(Game, {
     foreignKey: 'user_id'
 })
