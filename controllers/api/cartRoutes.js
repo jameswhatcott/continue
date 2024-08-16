@@ -4,6 +4,31 @@ const router = express.Router();
 const Cart = require('../../models/Cart'); // Adjust the path as necessary
 const Game = require('../../models/Game'); // Assuming you have a Game model
 
+router.post('/cart/add', async (req, res) => {
+  try {
+      const { game_id, console_id, price } = req.body;
+
+      // Add the game to the cart in the database
+      await Cart.create({
+          user_id: req.session.user_id,  // Assuming you have a logged-in user
+          game_id,
+          console_id,
+          quantity: 1,  // Default quantity
+          price
+      });
+
+      res.redirect('games'); // Redirect back to the previous page
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+  }
+});
+
+
+
+
+
+
 // Add item to cart
 router.post('/add', async (req, res) => {
   const { user_id, game_id, quantity } = req.body;
