@@ -20,17 +20,6 @@ router.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-<<<<<<< HEAD
-
-  // router.get('/cart', async (req, res) => {
-  //   try {
-  //     res.render('cart');
-  //   } catch (err) {
-  //     console.error('Error in root route:', err);  // Log the error
-  //   res.status(500).send('Internal Server Error');
-  //   }
-  // })
-=======
   router.get('/cart', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
@@ -41,7 +30,6 @@ router.get('/', async (req, res) => {
     res.status(500).send('Internal Server Error');
     }
   })
->>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
   router.get('/success', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
@@ -148,7 +136,6 @@ router.get('/', async (req, res) => {
     res.redirect(303, session.url);
   });
 
-<<<<<<< HEAD
   // Route to fetch all items in a user's cart and render them in a Handlebars template
 router.get('/cart', async (req, res) => {
   try {
@@ -192,7 +179,6 @@ router.get('/cart', async (req, res) => {
 });
 
 module.exports = router;
-=======
   router.get('/signup', (req, res) => {
     res.render('signup');
   });
@@ -235,6 +221,5 @@ module.exports = router;
   router.get('/login', (req, res) => {
     res.render('login');
   });
->>>>>>> 5ab888c8c73575e2374ee0d15c26e30511a23aad
 
   module.exports = router
