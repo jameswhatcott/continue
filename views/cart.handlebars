@@ -1,6 +1,6 @@
 <h1>Checkout</h1>
 
-{{#if cart.length}}
+{{#if cartItems.length}}
   <table>
     <thead>
       <tr>
@@ -13,20 +13,18 @@
       </tr>
     </thead>
     <tbody>
-      {{#each cart}}
+      {{#each cartItems}}
         <tr>
-          <td>{{this.name}}</td>
-          <td>{{this.console}}</td>
-          <td>{{this.condition}}</td>
-          <td>${{this.price_at_time}}</td>
-          <td>{{this.quantity}}</td>
-          <td>${{multiply this.price_at_time this.quantity}}</td>
+          <td>{{title}}</td>
+          <td>{{console}}</td>
+          <td>${{price}}</td>
+          <td>{{quantity}}</td>
         </tr>
       {{/each}}
     </tbody>
   </table>
 
-  <h3>Grand Total: ${{calculateTotal cart}}</h3>
+  {{!-- <h3>Grand Total: ${{calculateTotal cart}}</h3> --}}
 
   <form action="/create-checkout-session" method="POST">
     <button type="submit">Complete Purchase</button>

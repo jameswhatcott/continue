@@ -2,39 +2,17 @@
 const express = require('express');
 const router = express.Router();
 const Cart = require('../../models/Cart'); // Adjust the path as necessary
-const Game = require('../../models/Game'); // Assuming you have a Game model
-
-router.post('/add', async (req, res) => {
-  // Add logic to handle adding a game to the cart
-  try {
-      // Example logic to add a game to the cart
-      const { userId, gameId, quantity } = req.body;
-
-      // Assuming you have a Cart model set up
-      await Cart.create({
-          user_id: userId,
-          game_id: gameId,
-          quantity: quantity,
-      });
-
-      res.status(200).json({ message: 'Game added to cart' });
-  } catch (err) {
-      res.status(500).json({ error: 'Failed to add game to cart' });
-  }
-});
-
-
-
-
-
+const Game = require('../../models/Game');
+// const gamesConsole = require('../../models/gamesConsole'); // Assuming you have a Game model
+const gamesConsoles = require('../../models/gamesConsole');
 
 // Add item to cart
 router.post('/add', async (req, res) => {
-  const { user_id, game_id, quantity } = req.body;
+  const { user_id, gameConsole_id, quantity } = req.body;
 
   try {
     // Check if item is already in the cart
-    let cartItem = await Cart.findOne({ where: { user_id, game_id } });
+    let cartItem = await Cart.findOne({ where: { user_id, gameConsole_id } });
 
     if (cartItem) {
       // If item exists, update quantity
@@ -42,7 +20,7 @@ router.post('/add', async (req, res) => {
       await cartItem.save();
     } else {
       // If item doesn't exist, create a new entry
-      cartItem = await Cart.create({ user_id, game_id, quantity });
+      cartItem = await Cart.create({ user_id, gameConsole_id, quantity });
     }
 
     res.status(200).json({ message: 'Item added to cart', cartItem });
@@ -54,10 +32,10 @@ router.post('/add', async (req, res) => {
 
 // Remove item from cart
 router.delete('/remove', async (req, res) => {
-  const { user_id, game_id } = req.body;
+  const { user_id, gameConsole_id } = req.body;
 
   try {
-    const cartItem = await Cart.findOne({ where: { user_id, game_id } });
+    const cartItem = await Cart.findOne({ where: { user_id, gameConsole_id } });
 
     if (cartItem) {
       await cartItem.destroy();
@@ -80,8 +58,16 @@ router.get('/:user_id', async (req, res) => {
       where: { user_id },
       include: [
         {
-          model: Game, // Include the Game model to get game details
-          as: 'game', // Assuming you have set an alias in the association
+          model: gamesConsoles,
+          required: true,
+          include: [
+            {model: Game,
+              required: true
+            }
+          ]
+          // all: true, nested: true
+          // model: Game // Include the Game model to get game details
+        // Assuming you have set an alias in the association
         }
       ]
     });

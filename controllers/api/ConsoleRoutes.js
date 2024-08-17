@@ -1,31 +1,10 @@
-const router = require('express').Router();
+const express = require('express');
 const { Console } = require('../../models');
+const router = express.Router();
 
-// GET all consoles
-router.get('/', async (req, res) => {
-    try {
-        const consoleData = await Console.findAll();
-        res.status(200).json(consoleData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
+// Define routes here
+router.get('/', (req, res) => {
+    res.send('Console routes');
 });
-
-// GET a specific console by ID
-router.get('/:id', async (req, res) => {
-    try {
-        const consoleData = await Console.findByPk(req.params.id);
-        if (!consoleData) {
-            res.status(404).json({ message: 'No console found with this id!' });
-            return;
-        }
-        res.status(200).json(consoleData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-// Other console routes...
 
 module.exports = router;
-

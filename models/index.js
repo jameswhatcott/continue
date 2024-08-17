@@ -16,6 +16,14 @@ Game.belongsToMany(Console,{
     foreignKey: 'game_id'
 })
 
+gamesConsoles.belongsTo(Game,{
+  foreignKey: 'game_id'
+})
+
+gamesConsoles.belongsTo(Console,{
+  foreignKey: 'console_id'
+})
+
 User.hasMany(Game, {
     foreignKey: 'user_id'
 })
@@ -29,13 +37,13 @@ User.hasMany(Cart, {
     foreignKey: 'user_id',
   });
   
-  Game.hasMany(Cart, {
-    foreignKey: 'game_id',
+  gamesConsoles.hasMany(Cart, {
+    foreignKey: 'gameConsole_id',
     onDelete: 'CASCADE',
   });
   
-  Cart.belongsTo(Game, {
-    foreignKey: 'game_id',
+  Cart.belongsTo(gamesConsoles, {
+    foreignKey: 'gameConsole_id',
   });
 
 

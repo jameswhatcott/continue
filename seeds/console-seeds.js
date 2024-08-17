@@ -10,14 +10,16 @@ const consoleData = [
 ];
 
 // Seeder function
-const seedConsoles = async () => {
-    try {
-        await Console.bulkCreate(consoleData);
-        console.log('Consoles have been seeded successfully.');
-    } catch (err) {
-        console.error('Error seeding consoles:', err);
-    }
-};
+// const seedConsoles = async () => {
+//     try {
+//         await Console.bulkCreate(consoleData);
+//         console.log('Consoles have been seeded successfully.');
+//     } catch (err) {
+//         console.error('Error seeding consoles:', err);
+//     }
+// };
 
-// Execute the seeding
-seedConsoles();
+const seedConsoles = () => Console.bulkCreate(consoleData);
+
+
+module.exports = seedConsoles;

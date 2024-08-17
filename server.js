@@ -1,12 +1,35 @@
 
 // This is your test secret API key.
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const exphbs = require('express-handlebars');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
 const hbs = exphbs.create({});
 const routes = require('./controllers');
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
+const sequelize = require('./config/connection');
+
+
+
+const sess = {
+  secret: process.env.SESSION_SECRET || 'Super secret secret',
+  cookie: {
+    maxAge: 60 * 60 * 1000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
+
+app.use(session(sess));
+
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
@@ -23,10 +46,10 @@ app.get('/style.css', (req, res) => {
 });
 
 
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-const sequelize = require('./config/connection');
 require('dotenv').config();
 const {Game, User, Console} = require('./models')
 
@@ -52,6 +75,6 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(3001, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening'));
 });
 
