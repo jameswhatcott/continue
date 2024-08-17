@@ -56,6 +56,12 @@ const {Game, User, Console} = require('./models')
 app.use(routes)
 
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(session({ secret: 'Super secret secret', resave: false, saveUninitialized: true }));
+
+app.use('/api/users', require('./controllers/api/userRoute')); // Make sure this path matches your login.js a
+
 
 app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
