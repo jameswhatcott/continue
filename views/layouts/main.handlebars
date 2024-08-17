@@ -25,16 +25,16 @@
       <a href="/list-item">List an Item</a>
       <a href="/cart">Cart</a>
       {{#if loggedIn}}
-        <a href="/logout">Logout</a>
-      {{else}}
-        <a href="/login">Login</a>
-      {{/if}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
     </nav>
     <main>
       {{{body}}}
-      {{#if loggedIn}}
+    </main>
+    {{#if loggedIn}}
       <script src="/js/logout.js"></script>
       {{/if}}
-    </main>
   </body>
 </html>
