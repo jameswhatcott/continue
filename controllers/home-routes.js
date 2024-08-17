@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQKUHgla6fLrH6mbC8de2VdibW697xwogpjkjufDL5nbdpBtXdXzvl00wI2AUdvd');
 const withAuth = require('../utils/auth');
+const bcrypt = require('bcrypt');
+
 
 
 const { Game, User, Console, gamesConsoles, Cart } = require('../models');
@@ -14,7 +16,9 @@ router.get('/', async (req, res) => {
     const consolesData = await Console.findAll(); // Fetch all consoles
     const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
 
-    res.render('homepage', { consoles }); // Pass consoles to Handlebars
+    res.render('homepage', { consoles ,
+      loggedIn: req.session.loggedIn,
+     }); // Pass consoles to Handlebars
   } catch (err) {
     console.error('Error in root route:', err);
     res.status(500).send('Internal Server Error');
@@ -178,42 +182,7 @@ router.get('/cart', async (req, res) => {
   }
 });
 
-module.exports = router;
-  router.get('/signup', (req, res) => {
-    res.render('signup');
-  });
-  
-  
-  router.post('/signup', async (req, res) => {
-    try {
-      const { username, email, password } = req.body;
-  
-      // Validate input data
-      if (!username || !email || !password) {
-        return res.status(400).json({ message: 'All fields are required' });
-      }
-  
-      // Create the new user
-      const newUser = await User.create({
-        username,
-        email,
-        password,
-      });
-  
-      // Save the session after successful signup
-      req.session.save(() => {
-        req.session.user_id = newUser.id;
-        req.session.loggedIn = true;
-  
-        // Redirect to the homepage
-        res.status(200).json(newUser);
-      });
-    } catch (err) {
-      console.error('Signup error:', err);
-      res.status(500).json({ message: 'Failed to sign up', error: err.message });
-    }
-  });
-  
+
   
   
   
