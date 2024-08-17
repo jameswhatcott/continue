@@ -28,7 +28,8 @@ router.get('/', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
     const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
-      res.render('cart', { consoles });
+      res.render('cart', { consoles, loggedIn: req.session.loggedIn
+      });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -38,7 +39,7 @@ router.get('/', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
     const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
-      res.render('success', { consoles });
+      res.render('success', { consoles, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -46,7 +47,7 @@ router.get('/', async (req, res) => {
   });
   router.get('/cancel', async (req, res) => {
     try {
-      res.render('cancel', { consoles });
+      res.render('cancel', { consoles, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -57,7 +58,7 @@ router.get('/', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
     const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
-      res.render('games', { consoles });
+      res.render('games', { consoles, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -89,7 +90,7 @@ router.get('/', async (req, res) => {
 
         const console = consoleData.get({ plain: true });
 
-        res.render('games', { console, games: console.games, consoles });
+        res.render('games', { console, games: console.games, consoles, loggedIn: req.session.loggedIn });
     } catch (error) {
       console.error('Error fetching games:', error);
       res.status(500).send('Internal Server Error');
@@ -101,7 +102,7 @@ router.get('/', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
     const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
-      res.render('list-item', { consoles });
+      res.render('list-item', { consoles, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -112,7 +113,7 @@ router.get('/', async (req, res) => {
     try {
       const consolesData = await Console.findAll(); // Fetch all consoles
     const consoles = consolesData.map(console => console.get({ plain: true })); // Serialize data
-      res.render('orders', { consoles });
+      res.render('orders', { consoles, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.error('Error in root route:', err);  // Log the error
     res.status(500).send('Internal Server Error');
@@ -175,7 +176,7 @@ router.get('/cart', async (req, res) => {
     }));
 
     // Render the Handlebars template 'cart' with the cart items
-    res.render('cart', { cartItems: formattedCartItems });
+    res.render('cart', { cartItems: formattedCartItems, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to retrieve cart items.' });
