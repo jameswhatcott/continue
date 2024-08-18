@@ -12,6 +12,7 @@
        <form action="/cart/add" method="POST">
     <input type="hidden" name="userId" value="{{user.id}}">
     <input type="hidden" name="gameId" value="{{this.id}}">
+    <input type="hidden" name="consoleId" value="{{console.id}}">
     <input type="number" name="quantity" value="1" min="1">
     <button type="submit">Add to Cart</button>
 </form>
