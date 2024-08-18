@@ -1,6 +1,6 @@
 
 module.exports = {
-  content: ["./continue/**/*.{html,js,handlebars}"],
+  content: [],
   theme: {
     extend: {},
   },
