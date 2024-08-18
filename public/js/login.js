@@ -1,22 +1,51 @@
 const loginFormHandler = async (event) => {
+  event.preventDefault();
+
+  const email = document.querySelector('#email-login').value.trim();
+  const password = document.querySelector('#password-login').value.trim();
+
+  if (email && password) {
+    const response = await fetch('/api/users/login', { // Ensure this matches your server route
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert('Failed to log in.');
+    }
+  }
+};
+
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
+
+  const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
+    const username = document.querySelector('#username-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
+    const password = document.querySelector('#password-signup').value.trim();
   
-    if (email && password) {
-      const response = await fetch('/login', {
+    if (username && email && password) {
+      const response = await fetch('/api/users', { // Ensure this matches your server route
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/'); // Redirect to homepage
+        document.location.replace('/');
       } else {
-        alert('Failed to log in.');
+        alert('Failed to sign up.');
       }
     }
   };
   
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+  document
+    .querySelector('.signup-form')
+    .addEventListener('submit', signupFormHandler);
+  
