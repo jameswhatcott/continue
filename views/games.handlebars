@@ -1,18 +1,18 @@
-<h1>Games for {{console.console}} ({{console.developer}})</h1>
+<h1 class="text-4xl text-pretty antialiased font-bold text-center">Games for {{console.console}} ({{console.developer}})</h1>
 
-<ul>
+<ul class="justify-around w-fit">
     {{#each games}}
-    <li>
-        <h3>{{this.title}}</h3>
-        <p>Price: ${{this.gamesConsoles.price}}</p>
-        <p>Condition: {{this.gamesConsoles.condition}}</p>
-        <p>Stock: {{this.gamesConsoles.stock}}</p>
+    <li class=" flex-wrap inline-flex rounded-2xl px-6 py-8  ring-slate-700 shadow-2xl m-6 text-pretty w-1/4 space-x-5 text-lg">
+        <h3 class=" w-full text-left">{{this.title}}</h3>
+        <p class=" w-full text-left">Price: ${{this.gamesConsoles.price}}</p>
+        <p class=" w-full text-left">Condition: {{this.gamesConsoles.condition}}</p>
+        <p class=" w-full text-left">Stock: {{this.gamesConsoles.stock}}</p>
 
         <!-- Add to Cart Button -->
        <form action="/cart/add" method="POST">
     <input type="hidden" name="userId" value="{{user.id}}">
     <input type="hidden" name="gameId" value="{{this.id}}">
-    <input type="number" name="quantity" value="1" min="1">
+    <input type="number" name="quantity" value="1" min="1" class=" w-full text-slate-900 text-left rounded-md bg-blue-500">
     <button type="submit">Add to Cart</button>
 </form>
 
