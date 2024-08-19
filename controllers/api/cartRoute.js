@@ -1,41 +1,54 @@
 // routes/cart.js
 const express = require('express');
 const router = express.Router();
-const Cart = require('../../models/Cart'); // Adjust the path as necessary
-const Game = require('../../models/Game');
-// const gamesConsole = require('../../models/gamesConsole'); // Assuming you have a Game model
-const gamesConsoles = require('../../models/gamesConsole');
+const { Cart, Game, gamesConsoles } = require('../../models');
+
 
 // Add item to cart
 router.post('/add', async (req, res) => {
-  const { user_id, gameConsole_id, quantity } = req.body;
-
   try {
-    // Check if item is already in the cart
-    let cartItem = await Cart.findOne({ where: { user_id, gameConsole_id } });
+    const { gameId, quantity } = req.body;
+    const userId = req.session.user_id; 
 
-    if (cartItem) {
-      // If item exists, update quantity
-      cartItem.quantity += quantity;
-      await cartItem.save();
-    } else {
-      // If item doesn't exist, create a new entry
-      cartItem = await Cart.create({ user_id, gameConsole_id, quantity });
+    const gameConsoleItem = await gamesConsoles.findOne({
+      where: { game_id: gameId },
+    });
+
+    if (!gameConsoleItem) {
+      return res.status(404).json({ error: 'Game not found.' });
     }
 
-    res.status(200).json({ message: 'Item added to cart', cartItem });
-  } catch (error) {
-    console.error('Error adding item to cart:', error);
-    res.status(500).json({ error: 'An error occurred while adding the item to the cart.' });
+    let cartItem = await Cart.findOne({
+      where: { user_id: userId, gameConsole_id: gameConsoleItem.id },
+    });
+
+    if (cartItem) {
+      cartItem.quantity += parseInt(quantity, 10);
+      await cartItem.save();
+    } else {
+      cartItem = await Cart.create({
+        user_id: userId,
+        gameConsole_id: gameConsoleItem.id,
+        quantity: parseInt(quantity, 10),
+      });
+    }
+
+    res.status(200).json(cartItem);
+  } catch (err) {
+    console.error('Error adding item to cart:', err);
+    res.status(500).json({ error: 'Failed to add item to cart.' });
   }
 });
+
 
 // Remove item from cart
 router.delete('/remove', async (req, res) => {
   const { user_id, gameConsole_id } = req.body;
 
   try {
-    const cartItem = await Cart.findOne({ where: { user_id, gameConsole_id } });
+    const cartItem = await Cart.findOne({
+      where: { user_id, gameConsole_id },
+    });
 
     if (cartItem) {
       await cartItem.destroy();
@@ -61,15 +74,13 @@ router.get('/:user_id', async (req, res) => {
           model: gamesConsoles,
           required: true,
           include: [
-            {model: Game,
-              required: true
-            }
-          ]
-          // all: true, nested: true
-          // model: Game // Include the Game model to get game details
-        // Assuming you have set an alias in the association
-        }
-      ]
+            {
+              model: Game,
+              required: true,
+            },
+          ],
+        },
+      ],
     });
 
     if (cartItems.length > 0) {
