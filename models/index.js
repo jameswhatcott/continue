@@ -1,84 +1,63 @@
-const User = require('./User')
-const Game = require('./Game')
-const Console = require('./Console')
-const Cart = require('./Cart')
-const gamesConsoles = require('./gamesConsole')
-
+// models/index.js
+const Cart = require('./Cart');
+const Game = require('./Game');
+const Console = require('./Console');
+const gamesConsoles = require('./gamesConsole'); // Assuming this is your join table model
 
 
 Console.belongsToMany(Game, {
-    through: 'gamesConsoles',
-    foreignKey: 'console_id'
-})
+  through: gamesConsoles,
+  foreignKey: 'console_id',
+});
 
-Game.belongsToMany(Console,{
-    through: 'gamesConsoles',
-    foreignKey: 'game_id'
-})
+Game.belongsToMany(Console, {
+  through: gamesConsoles,
+  foreignKey: 'game_id',
+});
 
-gamesConsoles.belongsTo(Game,{
-  foreignKey: 'game_id'
-})
 
-gamesConsoles.belongsTo(Console,{
-  foreignKey: 'console_id'
-})
 
-User.hasMany(Game, {
-    foreignKey: 'user_id'
-})
 
+// Game to gamesConsoles
+Game.hasMany(gamesConsoles, {
+  foreignKey: 'game_id',
+});
+
+gamesConsoles.belongsTo(Game, {
+  foreignKey: 'game_id',
+});
+
+// Console to gamesConsoles
+Console.hasMany(gamesConsoles, {
+  foreignKey: 'console_id',
+});
+
+gamesConsoles.belongsTo(Console, {
+  foreignKey: 'console_id',
+});
+
+// Cart to gamesConsoles
+Cart.belongsTo(gamesConsoles, {
+  foreignKey: 'gameConsole_id',
+});
+
+gamesConsoles.hasMany(Cart, {
+  foreignKey: 'gameConsole_id',
+});
+
+// Optionally, you may have a User model to link carts to users
+const User = require('./User');
 User.hasMany(Cart, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-  });
-  
-  Cart.belongsTo(User, {
-    foreignKey: 'user_id',
-  });
-  
-  gamesConsoles.hasMany(Cart, {
-    foreignKey: 'gameConsole_id',
-    onDelete: 'CASCADE',
-  });
-  
-  Cart.belongsTo(gamesConsoles, {
-    foreignKey: 'gameConsole_id',
-  });
+  foreignKey: 'user_id',
+});
+Cart.belongsTo(User, {
+  foreignKey: 'user_id',
+});
 
-
-
-
-module.exports = {User, Game, Console, Cart, gamesConsoles}
-
-
-
-
-
-
-
-
-
-// CREATE TABLE game (
-//       game_id INTEGER NOT NULL,
-//    title VARCHAR(30) NOT NULL
-//      publisher TEXT NOT NULL,
-//       player_perspective VARCHAR(20) NOT NULL,
-//       year_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-//        genre VARCHAR(30)
-//      );
-    
-//      CREATE TABLE game_info (
-//        game_id INTEGER PRIMARY KEY  
-//       developer VARCHAR(30) NOT NULL,
-//       engine VARCHAR(30) NOT NULL
-//        amount_players INTEGER NOT NULL,
-//      );
-    
-//      CREATE TABLE product (
-//          productID INTEGER PRIMARY KEY 
-//          condition VARCHAR(30) NOT NULL,
-//         price DECIMAL(10, 2) NOT NULL,
-//          Stock INT DEFAULT 10,
-//          currency 
-//      )
+module.exports = {
+  Cart,
+  Game,
+  Console,
+  gamesConsoles,
+  User, // If you have a User model
+};
