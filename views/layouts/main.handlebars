@@ -2,31 +2,73 @@
 <html>
   <head>
     <title>Continue</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/public/tailwind-output.css">
+    <script src="https://js.stripe.com/v3/"></script>
     <script src="/js/script.js"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+       <script>
+    tailwind.config = {
+      theme: {
+        screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+        }
+        extend: {
+          fontFamily: {
+        sans: ['Graphik', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
+        popins: ['"Poppins", sans-serif;']
+        
+      },
+      colors: {
+        'winter' : '#537895',
+        'spring' : '#09203F',
+        'summer' : '#dddddd',
+      },
+
+        }
+      }
+    }
+  </script>
   </head>
-  <body>
-    <h1>Continue</h1>
-    <nav>
-      <a href="/">Home</a>
-      <!-- Dropdown Menu -->
-      <div class="dropdown">
-        <a href="/games">Games</a>
-        <div class="dropdown-content">
-          <ul>
+  <body class="bg-gradient-to-r from-teal-400 to-blue-500 font-bold">
+       <nav class="p-5 bg-white flex shadow-xl md:items-center justify-between lg:static w-auto">
+        <div>
+          <span class=" text-2xl font-bold cursor-pointer" >CONTINUE</span>
+        </div>
+    <ul class='md:flex md:items-center justify-end mx-4 my-2'>
+      <li class="mx-4 sm:my-6 my-0">
+        <a href="/"class=" text-xl hover:text-cyan-500 duration-500 " >Home</a>
+      </li>
+      <li class="mx-4 sm:my-6 my-0">
+        <!-- Dropdown Menu -->
+      <button type="button " class="dropdown " >
+        <a href="/games" class=" text-xl text-white bg-gradient-to-r from-teal-400 to-blue-500 duration-500 px-6 py-2 mx-4 hover:bg-cyan-500 rounded-lg" >Games by console </a>
+        <div class="dropdown-content" class=" relative hidden min-w-40 hover:-translate-y-1 h-3/4 rounded-lg text-center p-4 ring-2 mt-8 " >
+          <ul class="md:flex md:items-center justify-end ">
             {{#each consoles as |console|}}
-            <li><a href="/games/{{console.id}}">{{console.console}}</a></li>
+            <li class=" sm:flex-wrap md:w-full mx-4 sm:my-6 my-0 sm:inline-grid inline-flex ring-2 space-x-2 text-pretty  text-xl text-white bg-gradient-to-r from-teal-400 to-blue-500 duration-500 px-6 py-2  hover:bg-cyan-500 rounded-lg " ><a href="/games/{{console.id}}">{{console.console}}</a></li>
             {{/each}}
           </ul>
         </div>
-      </div>
-      <a href="/orders">Your Orders</a>
-      <a href="/cart">Cart</a>
-      {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
+      </button>
+      </li>
+      <li class="mx-4 sm:my-6 my-0">
+        <a href="/orders" class=" text-xl hover:text-cyan-500 duration-500 ">Your Orders</a>
+      </li>
+      <li class="mx-4 sm:my-6 my-0">
+        <a href="/cart" class=" text-xl hover:text-cyan-500 duration-500" >Cart</a>
+      </li>
+      <li class="mx-4 sm:border-spacing-16 my-0">
+        {{#if loggedIn}}
+        <button id="logout" class="btn-no-style" class=" text-xl hover:text-cyan-500 duration-500" >Logout</button>
+        {{else}}
+        <a href="/login" class=" text-xl text-white bg-gradient-to-r from-teal-400 to-blue-500 duration-500 px-6 py-2 mx-4 hover:bg-cyan-500 rounded-lg my-2" >Login</a>
+        {{/if}}
+      </li>
+    </ul>
     </nav>
     <main>
       {{{body}}}
