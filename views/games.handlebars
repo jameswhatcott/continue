@@ -9,8 +9,8 @@
         <p class=" w-full left-0 mx-4 my-2">Stock: {{this.gamesConsoles.stock}}</p>
 
         <!-- Add to Cart Button -->
-       <form id="add-to-cart-form" data-game-id="{{game.id}}" method="POST" action="cart/add">
-    <input type="hidden" name="userId" value="{{user.id}}">
+       <form id="add-to-cart-form" data-game-id="{{this.id}}" method="POST" action="cart/add">
+    <input type="hidden" name="userId" value="{{}}">
     <input type="hidden" name="gameId" value="{{this.id}}">
     <input type="hidden" name="consoleId" value="{{console.id}}">
     <input type="number" name="quantity" value="1" min="1" class=" sm:w-1/2 left-0 text-slate-900 text-left rounded-md bg-white mx-4 my-2">

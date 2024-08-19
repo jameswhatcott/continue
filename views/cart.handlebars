@@ -17,18 +17,17 @@
     <tbody>
       {{#each cartItems}}
         <tr>
-          <td>{{title}}</td>
-          <td>{{console}}</td>
-          <td>{{condition}}</td>
-          <td>${{price}}</td>
+          <td>{{gamesConsole.game.title}}</td>
+          <td>{{gamesConsole.condition}}</td>
+          <td>${{gamesConsole.price}}</td>
           <td>{{quantity}}</td>
-          <td>${{multiply price quantity}}</td> <!-- Assuming you have a helper to multiply price * quantity -->
+          {{!-- <td>${{multiply price quantity}}</td> <!-- Assuming you have a helper to multiply price * quantity --> --}}
         </tr>
       {{/each}}
     </tbody>
   </table>
-
-  <h3>Grand Total: ${{calculateTotal cartItems}}</h3>
+{{!-- 
+  <h3>Grand Total: ${{calculateTotal cartItems}}</h3> --}}
 
   <form action="/create-checkout-session" method="POST">
     <button type="submit">Complete Purchase</button>

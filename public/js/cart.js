@@ -1,4 +1,4 @@
-document.querySelector('#add-to-cart-form').addEventListener('submit', async (event) => {
+document.querySelector('.products').addEventListener('submit', async (event) => {
     event.preventDefault();
   
     const gameId = event.target.querySelector('input[name="gameId"]').value;

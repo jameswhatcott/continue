@@ -2,7 +2,7 @@ const router = require('express').Router();
 const stripe = require('stripe')('sk_test_51PlKKp2LbkaMI4KQzYv0Kn10D7CqOf2QZboQKUHgla6fLrH6mbC8de2VdibW697xwogpjkjufDL5nbdpBtXdXzvl00wI2AUdvd');
 const withAuth = require('../utils/auth');
 const bcrypt = require('bcrypt');
-const { Game, User, Console, gamesConsoles } = require('../models');
+const { Game, User, Console, gamesConsoles, Cart } = require('../models');
 
 const YOUR_DOMAIN = 'http://localhost:3001';
 
@@ -57,21 +57,21 @@ router.get('/games/:console_id', async (req, res) => {
         model: Game,
         through: {
           model: gamesConsoles,
-          attributes: ['price', 'condition', 'stock'],
+          // attributes: ['price', 'condition', 'stock'],
         },
       },
     });
-
+   
     if (!consoleData) {
       res.status(404).json({ message: 'No console found with this id!' });
       return;
     }
 
-    const console = consoleData.get({ plain: true });
-
+    const console1 = consoleData.get({ plain: true });
+    console.log(console1.games[0].gamesConsoles)
     res.render('games', {
-      console,
-      games: console.games,
+      console:console1,
+      games: console1.games,
       consoles,
       loggedIn: req.session.loggedIn,
     });
@@ -83,22 +83,75 @@ router.get('/games/:console_id', async (req, res) => {
 
 // Stripe checkout session creation
 router.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
+  const user_id = req.session.user_id 
+  const cartItems = await Cart.findAll({
+      where: { user_id },
+      include: [
+        {
+          model: gamesConsoles,
+          required: true,
+          include: [
+            {
+              model: Game,
+              required: true,
+            },
+          ],
+        },
+      ],
+    });
+    const items = cartItems.map((item)=> {
+      return {
         price_data: {
           currency: 'usd',
-          product_data: { name: 'T-shirt' },
-          unit_amount: 2000,
+          product_data: { name: item.get({plain:true}).gamesConsole.game.title },
+          unit_amount: 2999,
         },
         quantity: 1,
-      },
-    ],
+      }
+    })
+    console.log(items);
+ 
+  const session = await stripe.checkout.sessions.create({
+    line_items: items,
     mode: 'payment',
     success_url: `${YOUR_DOMAIN}/success`,
     cancel_url: `${YOUR_DOMAIN}/cancel`,
   });
   res.redirect(303, session.url);
+});
+
+router.get('/cart', async (req, res) => {
+  const { user_id } = req.session;
+
+  try {
+    const cartItems = await Cart.findAll({
+      where: { user_id },
+      include: [
+        {
+          model: gamesConsoles,
+          required: true,
+          include: [
+            {
+              model: Game,
+              required: true,
+            },
+          ],
+        },
+      ],
+    });
+    const items = cartItems.map((item)=> {
+      return item.get({plain: true})
+    })
+    console.log(items);
+    if (cartItems.length > 0) {
+      res.render("cart", {cartItems: items})
+    } else {
+      res.status(404).json({ message: 'Cart is empty' });
+    }
+  } catch (error) {
+    console.error('Error fetching cart:', error);
+    res.status(500).json({ error: 'An error occurred while fetching the cart.' });
+  }
 });
 
 // Login route

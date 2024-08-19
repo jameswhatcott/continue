@@ -7,6 +7,7 @@ const { Cart, Game, gamesConsoles } = require('../../models');
 // Add item to cart
 router.post('/add', async (req, res) => {
   try {
+    console.log(req.session)
     const { gameId, quantity } = req.body;
     const userId = req.session.user_id; 
 
@@ -17,7 +18,7 @@ router.post('/add', async (req, res) => {
     if (!gameConsoleItem) {
       return res.status(404).json({ error: 'Game not found.' });
     }
-
+    console.log(gameConsoleItem)
     let cartItem = await Cart.findOne({
       where: { user_id: userId, gameConsole_id: gameConsoleItem.id },
     });
@@ -63,35 +64,6 @@ router.delete('/remove', async (req, res) => {
 });
 
 // Get user's cart
-router.get('/:user_id', async (req, res) => {
-  const { user_id } = req.params;
 
-  try {
-    const cartItems = await Cart.findAll({
-      where: { user_id },
-      include: [
-        {
-          model: gamesConsoles,
-          required: true,
-          include: [
-            {
-              model: Game,
-              required: true,
-            },
-          ],
-        },
-      ],
-    });
-
-    if (cartItems.length > 0) {
-      res.status(200).json(cartItems);
-    } else {
-      res.status(404).json({ message: 'Cart is empty' });
-    }
-  } catch (error) {
-    console.error('Error fetching cart:', error);
-    res.status(500).json({ error: 'An error occurred while fetching the cart.' });
-  }
-});
 
 module.exports = router;
