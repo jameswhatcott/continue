@@ -1,6 +1,8 @@
-<h1>Checkout</h1>
+<h1 class=" text-3xl text-center mx-8 my-6 underline decoration-dotted" > Checkout Page </h1>
+<script src="https://js.stripe.com/v3/"></script>
 
-{{#if cart.length}}
+
+{{#if cartItems.length}}
   <table>
     <thead>
       <tr>
@@ -13,24 +15,26 @@
       </tr>
     </thead>
     <tbody>
-      {{#each cart}}
+      {{#each cartItems}}
         <tr>
-          <td>{{this.name}}</td>
-          <td>{{this.console}}</td>
-          <td>{{this.condition}}</td>
-          <td>${{this.price_at_time}}</td>
-          <td>{{this.quantity}}</td>
-          <td>${{multiply this.price_at_time this.quantity}}</td>
+          <td>{{title}}</td>
+          <td>{{console}}</td>
+          <td>{{condition}}</td>
+          <td>${{price}}</td>
+          <td>{{quantity}}</td>
+          <td>${{multiply price quantity}}</td> <!-- Assuming you have a helper to multiply price * quantity -->
         </tr>
       {{/each}}
     </tbody>
   </table>
 
-  <h3>Grand Total: ${{calculateTotal cart}}</h3>
+  <h3>Grand Total: ${{calculateTotal cartItems}}</h3>
 
   <form action="/create-checkout-session" method="POST">
     <button type="submit">Complete Purchase</button>
   </form>
 {{else}}
-  <p>Your cart is empty.</p>
+  <p class=" text-3xl text-center mx-8 my-6"> Your cart is empty.</p>
 {{/if}}
+
+

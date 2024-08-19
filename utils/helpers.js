@@ -8,6 +8,12 @@ module.exports = {
         total += item.price_at_time * item.quantity;
       });
       return total.toFixed(2);
-    }
-  };
+    },
+    // helpers.js
+
+  multiply: (a, b) => a * b,
+  calculateTotal: (cartItems) => cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0),
+};
+
+  
   
