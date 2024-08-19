@@ -80,13 +80,14 @@ app.post('/create-checkout-session', async (req, res) => {
   res.redirect(303, session.url);
 });
 
-const cartRoutes = require('./controllers/api/cartRoute'); // Adjust the path as necessary
+const cartRoutes = require('./controllers/api/cartRoute');
+app.use('/cart', cartRoutes);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Add your cart routes here
-app.use(cartRoutes);
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

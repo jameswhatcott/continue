@@ -9,7 +9,7 @@
         <p class=" w-full left-0 mx-4 my-2">Stock: {{this.gamesConsoles.stock}}</p>
 
         <!-- Add to Cart Button -->
-       <form action="/cart/add" method="POST">
+       <form id="add-to-cart-form" data-game-id="{{game.id}}" method="POST" action="cart/add">
     <input type="hidden" name="userId" value="{{user.id}}">
     <input type="hidden" name="gameId" value="{{this.id}}">
     <input type="hidden" name="consoleId" value="{{console.id}}">
@@ -20,3 +20,5 @@
     </li>
     {{/each}}
 </ul>
+
+<script src="/js/cart.js"></script>
