@@ -1,6 +1,6 @@
 <h1 class="text-center text-mx-4 my-6 text-3xl underline decoration-dashed">Games for {{console.console}} ({{console.developer}})</h1>
 
-<ul class="justify-around sm:justify-center ">
+<ul class="justify-around sm:justify-center products" >
     {{#each games}}
     <li class="  sm:flex-wrap xl:w-1/3 2xl:w-1/6 inline-flex  rounded-2xl px-6 py-8  ring-slate-700 shadow-xl m-6 text-pretty space-x-5 text-2xl text-slate-900 mx-4">
         <h3 class=" w-full left-0 text-red-800 mx-4 my-2 ">{{this.title}}</h3>
@@ -9,8 +9,8 @@
         <p class=" w-full left-0 mx-4 my-2">Stock: {{this.gamesConsoles.stock}}</p>
 
         <!-- Add to Cart Button -->
-       <form id="add-to-cart-form" data-game-id="{{game.id}}" method="POST" action="cart/add">
-    <input type="hidden" name="userId" value="{{user.id}}">
+       <form id="add-to-cart-form" data-game-id="{{this.id}}" method="POST" action="cart/add">
+    <input type="hidden" name="userId" value="{{}}">
     <input type="hidden" name="gameId" value="{{this.id}}">
     <input type="hidden" name="consoleId" value="{{console.id}}">
     <input type="number" name="quantity" value="1" min="1" class=" sm:w-1/2 left-0 text-slate-900 text-left rounded-md bg-white mx-4 my-2">

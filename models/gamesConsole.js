@@ -6,6 +6,12 @@ class gamesConsoles extends Model{}
 
 gamesConsoles.init(
     {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+        },
         game_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
