@@ -8,10 +8,5 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdown.querySelector('.dropdown-content').style.display = 'none';
         });
     });
-    const productList = document.querySelector('.products');
-    productList.addEventListener('submit', (event) => {
-        event.preventDefault();
-        console.log(event.target)
-    })
 });
 
