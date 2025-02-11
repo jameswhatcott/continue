@@ -43,8 +43,8 @@ Make sure you seed the data!
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/your-username/video-game-store.git
-    cd video-game-store
+    git clone https://github.com/jameswhatcott/continue.git
+    cd continue
     ```
 
 2. **Install Dependencies**
@@ -66,12 +66,26 @@ Make sure you seed the data!
 
 4. **Set Up the Database**
 
-    Run the migrations and seed the database:
+    Set up the database:
 
     ```bash
-    npx sequelize-cli db:migrate
-    npx sequelize-cli db:seed:all
+    psql -U your_username -d postgres -c "DROP DATABASE IF EXISTS games_db;"
+    psql -U your_username -d postgres -c "CREATE DATABASE games_db OWNER your_username;"
+
     ```
+
+    Create the tables:
+
+    ```bash
+    node syncDB.js
+    ```
+
+    Seed the data:
+
+    ```bash
+    node seeds/index.js
+    ```
+
 
 5. **Start the Application**
 
