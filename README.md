@@ -131,7 +131,7 @@ Make sure you seed the data!
 
 ## Deployed Application
 
-- [Live Site](https://your-deployed-app.render.com)
+- [Live Site](https://continue-4su3.onrender.com/)
 
 ## GitHub Repository
 
