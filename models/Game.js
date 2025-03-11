@@ -33,6 +33,10 @@ Game.init(
             type: DataTypes.STRING,
             allowNull: false
         },
+        image_path: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
     },
     {
         sequelize,
