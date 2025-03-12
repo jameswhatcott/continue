@@ -30,11 +30,11 @@ const dsGameData = [
 
 //  Wii games
 const wiiGameData = [
-    { title: 'The Legend of Zelda: Twilight Princess', publisher: 'Nintendo', amount_players: 1, year_created: 2006, genre: 'Action-Adventure', image_path: '/images/gameCovers/wii/zelda-twilight-princess.jpeg' },
+    { title: 'The Legend of Zelda: Twilight Princess', publisher: 'Nintendo', amount_players: 1, year_created: 2006, genre: 'Action-Adventure', image_path: '/images/gameCovers/wii/zelda-twilight-princess.jpg' },
     { title: 'Super Smash Bros. Brawl', publisher: 'Nintendo', amount_players: 4, year_created: 2008, genre: 'Fighting', image_path: '/images/gameCovers/wii/super-smash-bros-brawl.jpeg' },
     { title: 'Mario Kart Wii', publisher: 'Nintendo', amount_players: 4, year_created: 2008, genre: 'Racing', image_path: '/images/gameCovers/wii/mario-kart-wii.jpeg' },
     { title: 'Super Mario Galaxy', publisher: 'Nintendo', amount_players: 1, year_created: 2007, genre: 'Platformer', image_path: '/images/gameCovers/wii/super-mario-galaxy.jpeg' },
-    { title: 'Metroid Prime 3: Corruption', publisher: 'Nintendo', amount_players: 1, year_created: 2007, genre: 'Action', image_path: '/images/gameCovers/wii/metroid-prime-3-corruption.jpeg' },
+    { title: 'Metroid Prime 3: Corruption', publisher: 'Nintendo', amount_players: 1, year_created: 2007, genre: 'Action', image_path: '/images/gameCovers/wii/metroid-prime-corruption.jpeg' },
     { title: 'Donkey Kong Country Returns', publisher: 'Nintendo', amount_players: 2, year_created: 2010, genre: 'Platformer', image_path: '/images/gameCovers/wii/donkey-kong-country-returns.jpeg' },
     { title: 'The Legend of Zelda: Skyward Sword', publisher: 'Nintendo', amount_players: 1, year_created: 2011, genre: 'Action-Adventure', image_path: '/images/gameCovers/wii/zelda-skyward-sword.jpeg' },
     { title: 'Wii Sports', publisher: 'Nintendo', amount_players: 4, year_created: 2006, genre: 'Sports', image_path: '/images/gameCovers/wii/wii-sports.jpeg' },
@@ -48,7 +48,7 @@ const ps4GameData = [
     { title: 'God of War', publisher: 'Sony', amount_players: 1, year_created: 2018, genre: 'Action-Adventure', image_path: '/images/gameCovers/ps4/god-of-war.jpeg' },
     { title: 'Spider-Man', publisher: 'Sony', amount_players: 1, year_created: 2018, genre: 'Action', image_path: '/images/gameCovers/ps4/spiderman.jpeg'},
     { title: 'Bloodborne', publisher: 'Sony', amount_players: 1, year_created: 2015, genre: 'Action RPG', image_path: '/images/gameCovers/ps4/bloodborne.jpeg' },
-    { title: 'Uncharted 4: A Thief’s End', publisher: 'Sony', amount_players: 1, year_created: 2016, genre: 'Action-Adventure', image_path: '/images/gameCovers/ps4/uncharted-4.jpeg' },
+    { title: 'Uncharted 4: A Thief’s End', publisher: 'Sony', amount_players: 1, year_created: 2016, genre: 'Action-Adventure', image_path: '/images/gameCovers/ps4/uncharted-4-a-thiefs-end.jpeg' },
     { title: 'Horizon Zero Dawn', publisher: 'Sony', amount_players: 1, year_created: 2017, genre: 'Action RPG', image_path: '/images/gameCovers/ps4/horizon-zero-dawn.jpeg' },
     { title: 'Red Dead Redemption II', publisher: 'Rockstar Games', amount_players: 1, year_created: 2018, genre: 'Action-Adventure', image_path: '/images/gameCovers/ps4/red-dead-redemption-ii.jpeg' },
     { title: 'Persona 5', publisher: 'Atlus', amount_players: 1, year_created: 2017, genre: 'RPG', image_path: '/images/gameCovers/ps4/persona-5.jpeg' },
@@ -60,11 +60,11 @@ const ps4GameData = [
 const xboxGameData = [
     { title: 'Halo: Combat Evolved', publisher: 'Microsoft', amount_players: 1, year_created: 2001, genre: 'First-Person Shooter', image_path: '/images/gameCovers/xbox/halo-combat-evolved.jpeg' },
     { title: 'Fable', publisher: 'Microsoft', amount_players: 1, year_created: 2004, genre: 'RPG', image_path: '/images/gameCovers/xbox/fable.jpeg' },
-    { title: 'Ninja Gaiden', publisher: 'Tecmo', amount_players: 1, year_created: 2004, genre: 'Action', image_path: '/images/gameCovers/xbox/ninja-gaiden.jpeg' },
-    { title: 'Star Wars: Knights of the Old Republic', publisher: 'LucasArts', amount_players: 1, year_created: 2003, genre: 'RPG', image_path: '/images/gameCovers/xbox/star-wars-kotor.jpeg' },
+    { title: 'Ninja Gaiden', publisher: 'Tecmo', amount_players: 1, year_created: 2004, genre: 'Action', image_path: '/images/gameCovers/xbox/ninja-gaiden.jpg' },
+    { title: 'Star Wars: Knights of the Old Republic', publisher: 'LucasArts', amount_players: 1, year_created: 2003, genre: 'RPG', image_path: '/images/gameCovers/xbox/star-wars-knights-of-the-old-republic.jpg' },
     { title: 'Forza Motorsport', publisher: 'Microsoft', amount_players: 2, year_created: 2005, genre: 'Racing', image_path: '/images/gameCovers/xbox/forza-motorsport.jpeg' },
-    { title: 'The Elder Scrolls III: Morrowind', publisher: 'Bethesda', amount_players: 1, year_created: 2002, genre: 'RPG', image_path: '/images/gameCovers/xbox/elder-scrolls-morrowind.jpeg' },
-    { title: 'Conker: Live & Reloaded', publisher: 'Microsoft', amount_players: 2, year_created: 2005, genre: 'Platformer', image_path: '/images/gameCovers/xbox/conker-live-reloaded.jpeg' },
+    { title: 'The Elder Scrolls III: Morrowind', publisher: 'Bethesda', amount_players: 1, year_created: 2002, genre: 'RPG', image_path: '/images/gameCovers/xbox/elder-scrolls-iii-morrowind.jpeg' },
+    { title: 'Conker: Live & Reloaded', publisher: 'Microsoft', amount_players: 2, year_created: 2005, genre: 'Platformer', image_path: '/images/gameCovers/xbox/conker-live-and-reloaded.jpeg' },
     { title: 'Jade Empire', publisher: 'Microsoft', amount_players: 1, year_created: 2005, genre: 'RPG', image_path: '/images/gameCovers/xbox/jade-empire.jpeg' },
     { title: 'Tom Clancy’s Splinter Cell', publisher: 'Ubisoft', amount_players: 1, year_created: 2002, genre: 'Action', image_path: '/images/gameCovers/xbox/splinter-cell.jpeg' },
     { title: 'Panzer Dragoon Orta', publisher: 'Sega', amount_players: 1, year_created: 2003, genre: 'Rail Shooter', image_path: '/images/gameCovers/xbox/panzer-dragoon-orta.jpeg' }
