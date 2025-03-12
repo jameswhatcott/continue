@@ -3,7 +3,7 @@ const { Game } = require('../models');
 // GBA games
 const gbaGameData = [
     { title: 'The Legend of Zelda: The Minish Cap', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'Action-Adventure', image_path: '/images/gameCovers/gba/zelda-minish-cap.jpeg' },
-    { title: 'Pokémon FireRed', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'RPG' },
+    { title: 'Pokémon FireRed', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'RPG', image_path: '/images/gameCovers/gba/pokemon-firered.jpeg' },
     { title: 'Super Mario Advance 3', publisher: 'Nintendo', amount_players: 1, year_created: 2002, genre: 'Platformer', image_path: '/images/gameCovers/gba/super-mario-advance-3.jpeg' },
     { title: 'Metroid Fusion', publisher: 'Nintendo', amount_players: 1, year_created: 2002, genre: 'Action', image_path: '/images/gameCovers/gba/metroid-fusion.jpeg' },
     { title: 'Mario Kart: Super Circuit', publisher: 'Nintendo', amount_players: 4, year_created: 2001, genre: 'Racing', image_path: '/images/gameCovers/gba/mario-kart-super-circuit.jpeg' },
