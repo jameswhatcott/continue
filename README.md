@@ -135,9 +135,9 @@ Make sure you seed the data!
 
 ## Screenshots
 
-![Homepage]("/public/images/homepage-for-continue-gaming.png")
-![Game Details]("/public/images/games1.png")
-![Game Details]("/public/images/games2.png")
+![Homepage]("/images/homepage-for-continue-gaming.png")
+![Game Details]("/images/games1.png")
+![Game Details]("/images/games2.png")
 ![Cart](public/images/cart.png)
 
 ## Future Development
