@@ -2,6 +2,8 @@ console.time('Startup');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const helpers = require('./utils/helpers');
+console.log('Helpers loaded:', helpers);
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
 const routes = require('./controllers');
@@ -49,7 +51,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 
 // Handlebars setup
-app.engine('handlebars', exphbs());
+const hbs = exphbs.create({
+  helpers: helpers // Register all helpers from helpers.js
+});
+
+
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Routes

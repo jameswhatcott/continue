@@ -7,7 +7,6 @@
     <thead>
       <tr>
         <th>Game</th>
-        <th>Console</th>
         <th>Condition</th>
         <th>Price</th>
         <th>Quantity</th>
@@ -21,13 +20,13 @@
           <td>{{gamesConsole.condition}}</td>
           <td>${{gamesConsole.price}}</td>
           <td>{{quantity}}</td>
-          {{!-- <td>${{multiply price quantity}}</td> <!-- Assuming you have a helper to multiply price * quantity --> --}}
+          <td>${{multiply gamesConsole.price quantity}}</td>
         </tr>
       {{/each}}
     </tbody>
   </table>
-{{!-- 
-  <h3>Grand Total: ${{calculateTotal cartItems}}</h3> --}}
+
+<h3 class="text-xl text-center mx-8 my-4">Grand Total: ${{calculateTotal cartItems}}</h3>
 
   <form action="/create-checkout-session" method="POST">
     <button type="submit" class="text-xl text-white left-0 bg-blue-900 duration-500 px-6 py-2 mx-4 my-2 hover:bg-cyan-500 rounded-lg">Complete Purchase</button>
