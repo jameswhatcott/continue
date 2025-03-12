@@ -12,11 +12,6 @@ The Video Game Store is a full-stack eCommerce application that allows users to 
 - **Purchase History**: View a history of past purchases.
 - **Responsive Design**: Enjoy a polished user interface that works well on all devices.
 
-![alt-text](/images/homepage%20for%20continu%20gaming.png) 
-![alt-text](/images/games1.png)
-![alt-text](/images/games2.png)
-![alt-text](/images/login%20and%20sign%20up%20page.png)
-
 
 ## Technologies Used
 
@@ -140,8 +135,9 @@ Make sure you seed the data!
 
 ## Screenshots
 
-![Homepage]"C:\Users\mkeen\OneDrive\Pictures\Screenshots\Screenshot 2024-08-19 180204.png"
-![Game Details]c:\Users\mkeen\OneDrive\Pictures\Screenshots\Screenshot 2024-08-19 180224.png
+![Homepage]("/public/images/homepage-for-continue-gaming.png")
+![Game Details]("/public/images/games1.png")
+![Game Details]("/public/images/games2.png")
 ![Cart](public/images/cart.png)
 
 ## Future Development
