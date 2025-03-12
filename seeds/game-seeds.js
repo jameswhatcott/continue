@@ -2,7 +2,7 @@ const { Game } = require('../models');
 
 // GBA games
 const gbaGameData = [
-    { title: 'The Legend of Zelda: The Minish Cap', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'Action-Adventure' },
+    { title: 'The Legend of Zelda: The Minish Cap', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'Action-Adventure', image_path: '/images/gameCovers/gba/zelda' },
     { title: 'Pokémon FireRed', publisher: 'Nintendo', amount_players: 1, year_created: 2004, genre: 'RPG' },
     { title: 'Super Mario Advance 3', publisher: 'Nintendo', amount_players: 1, year_created: 2002, genre: 'Platformer' },
     { title: 'Metroid Fusion', publisher: 'Nintendo', amount_players: 1, year_created: 2002, genre: 'Action' },
