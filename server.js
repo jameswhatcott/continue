@@ -1,24 +1,38 @@
-
-// This is your test secret API key.
+console.time('Startup');
 const express = require('express');
 const session = require('express-session');
-const app = express();
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
-const hbs = exphbs.create({});
 const routes = require('./controllers');
 const PORT = process.env.PORT || 3001;
+
+console.log('Loading Sequelize...');
 const sequelize = require('./config/connection');
+console.log('Sequelize loaded, authenticating DB...');
 
+// Test DB connection early
+console.time('DB Connect');
+sequelize.authenticate()
+  .then(() => {
+    console.timeEnd('DB Connect');
+    console.log('DB connected successfully');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+    process.exit(1); // Exit if DB fails
+  });
 
+// Initialize app after DB is confirmed
+const app = express();
 
+// Session config (only after DB is ready)
 const sess = {
   secret: process.env.SESSION_SECRET || 'Super secret secret',
   cookie: {
-    maxAge: 60 * 60 * 1000,
+    maxAge: 60 * 60 * 1000, // 1 hour
     httpOnly: true,
-    secure: false,
+    secure: false, // Set to true if using HTTPS
     sameSite: 'strict',
   },
   resave: false,
@@ -28,68 +42,43 @@ const sess = {
   }),
 };
 
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));
 
-
+// Handlebars setup
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-// Other middleware and routes
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Routes
+app.use(routes);
+app.use('/api/users', require('./controllers/api/userRoute'));
+app.use('/cart', require('./controllers/api/cartRoute'));
 
-app.use(express.static('public'));
-
+// Custom route for style.css
 app.get('/style.css', (req, res) => {
   res.setHeader('Content-Type', 'text/css');
   res.sendFile(path.join(__dirname, 'public/style.css'));
 });
 
+// Placeholder for Stripe (uncomment and configure if needed)
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// app.post('/create-checkout-session', async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     line_items: [{ price: 'PRICE_ID', quantity: 1 }],
+//     mode: 'payment',
+//     success_url: `${process.env.YOUR_DOMAIN}/success.html`,
+//     cancel_url: `${process.env.YOUR_DOMAIN}/cancel.html`,
+//   });
+//   res.redirect(303, session.url);
+// });
 
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-require('dotenv').config();
-const {Game, User, Console} = require('./models')
-
-app.use(routes)
-
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(session({ secret: 'Super secret secret', resave: false, saveUninitialized: true }));
-
-app.use('/api/users', require('./controllers/api/userRoute')); // Make sure this path matches your login.js a
-
-
-app.post('/create-checkout-session', async (req, res) => {
-  const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-        price: '{{PRICE_ID}}',
-        quantity: 1,
-      },
-    ],
-    mode: 'payment',
-    success_url: `${YOUR_DOMAIN}/success.html`,
-    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
-  });
-
-  res.redirect(303, session.url);
+// Start server
+console.time('Server Start');
+app.listen(PORT, () => {
+  console.timeEnd('Server Start');
+  console.timeEnd('Startup');
+  console.log(`Server running on port ${PORT}`);
 });
-
-const cartRoutes = require('./controllers/api/cartRoute');
-app.use('/cart', cartRoutes);
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Add your cart routes here
-
-
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
-
