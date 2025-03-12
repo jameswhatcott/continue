@@ -13,7 +13,8 @@ The Video Game Store is a full-stack eCommerce application that allows users to 
 - **Responsive Design**: Enjoy a polished user interface that works well on all devices.
 
 ![alt-text](/images/homepage%20for%20continu%20gaming.png) 
-![alt-text](/images/games%20page.png)
+![alt-text](/images/games1.png)
+![alt-text](/images/games2.png)
 ![alt-text](/images/login%20and%20sign%20up%20page.png)
 
 
