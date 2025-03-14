@@ -2,7 +2,7 @@
 
 ## Description
 
-The Video Game Store is a full-stack eCommerce application that allows users to browse and purchase video games across multiple categories. Users can create accounts, view their past purchases, and manage their shopping carts. The platform utilizes Express.js, SQL, Tailwind, Javascript and more to provide a seamless and interactive shopping experience.
+Continue is a full-stack eCommerce application that allows users to browse and purchase video games across multiple categories. Users can create accounts, view their past purchases, and manage their shopping carts. The platform utilizes Express.js, SQL, Tailwind, Javascript and more to provide a seamless and interactive shopping experience.
 
 ## Features
 
